@@ -8,6 +8,8 @@
 *django-all-auth
 
 26.04.2023
+*Model Translation
+*locale
 *Google Auth
 *Apple Auth
 *ReCaptcha
