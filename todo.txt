@@ -1,0 +1,17 @@
+25.04.2023
+*requirements.txt - pip chill
+*sample.env
+*linter
+*makefile
+*JWT AUTHENTICATION
+*Tickets API
+*django-all-auth
+
+26.04.2023
+*Google Auth
+*Apple Auth
+*ReCaptcha
+*CELERY
+*ELASTICSEARCH
+*THROTTLING
+*PARSERS
