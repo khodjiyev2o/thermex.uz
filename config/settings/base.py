@@ -1,6 +1,6 @@
 from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent.parent
+import os
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = 'django-insecure-#rns(8q3m8-eh6rzn!%z3mvh8rs^^wlfo4j)8x8q%ddq^eh2u$'
 
@@ -13,7 +13,11 @@ LOCAL_APPS = [
     'apps.common.apps.CommonConfig',
 
 ]
+THIRD_PARTY_APPS = [
+
+]
 DJANGO_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -22,7 +26,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS
+INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -33,7 +37,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+AUTH_USER_MODEL = "users.User"
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -86,5 +90,19 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+JAZZMIN_SETTINGS = {
+    "site_brand": "MINT",
+
+    # Logo to use for your site, must be present in static files, used for brand on top left
+    "site_logo": "instagram.png",
+
+    # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
+    "login_logo": "instagram.png",
+}
