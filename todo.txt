@@ -1,6 +1,6 @@
 25.04.2023
-*requirements.txt - pip chill
-*sample.env
+*requirements.txt - pip chill - done
+*sample.env - done
 *linter
 *makefile
 *JWT AUTHENTICATION
@@ -17,3 +17,4 @@
 *ELASTICSEARCH
 *THROTTLING
 *PARSERS
+*sentry-sdk==1.15.0
