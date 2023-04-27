@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = 'django-insecure-#rns(8q3m8-eh6rzn!%z3mvh8rs^^wlfo4j)8x8q%ddq^eh2u$'
@@ -111,4 +112,10 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
+}
+
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=99),
 }
