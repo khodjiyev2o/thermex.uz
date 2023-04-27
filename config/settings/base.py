@@ -13,7 +13,7 @@ LOCAL_APPS = [
     'apps.common.apps.CommonConfig',
 ]
 THIRD_PARTY_APPS = [
-
+    'rest_framework_simplejwt',
 ]
 DJANGO_APPS = [
     'jazzmin',
@@ -104,4 +104,11 @@ JAZZMIN_SETTINGS = {
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
     "login_logo": "instagram.png",
+}
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }

@@ -1,6 +1,4 @@
 25.04.2023
-*requirements.txt - pip chill - done
-*sample.env - done
 *linter
 *makefile
 *JWT AUTHENTICATION
