@@ -9,5 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    #path('social_auth/', include('apps.social_auth.urls')),
     #path('users/', include('apps.users.urls')),
 ]

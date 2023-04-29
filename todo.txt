@@ -1,7 +1,6 @@
 25.04.2023
 *linter
 *makefile
-*JWT AUTHENTICATION
 *Tickets API
 *django-all-auth
 
