@@ -17,18 +17,10 @@ ALLOWED_HOSTS = []
 LOCAL_APPS = [
     'apps.users.apps.UsersConfig',
     'apps.common.apps.CommonConfig',
-    'apps.social_auth.apps.SocialAuthConfig',
 ]
 THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
-    "rest_framework.authtoken",
-    'dj_rest_auth',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    "allauth.socialaccount.providers.google",
-    "dj_rest_auth.registration",
 ]
 DJANGO_APPS = [
     'jazzmin',
@@ -38,7 +30,6 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
 ]
 
 INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
@@ -66,7 +57,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.request',
             ],
         },
     },
@@ -113,13 +103,14 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
-    "site_brand": "MINT",
+    "site_brand": "THERMEX",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "instagram.png",
+    "site_logo": "thermex.jpg",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    "login_logo": "instagram.png",
+    "login_logo": "thermex.jpg",
+    "site_logo_classes": "img-circle",
 }
 
 
@@ -135,22 +126,4 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=99),
 }
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
-SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
-REST_USE_JWT = True
-OAUTH_CALLBACK_URL = f"{env.str('HOST', '')}/login"
+
