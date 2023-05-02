@@ -6,6 +6,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-#rns(8q3m8-eh6rzn!%z3mvh8rs^^wlfo4j)8x8q%ddq^eh2u$'
 
 DEBUG = True
+import environ
+# READING ENV
+env = environ.Env()
+env.read_env(os.path.join(BASE_DIR, ".env"))
+
 
 ALLOWED_HOSTS = []
 
@@ -15,11 +20,15 @@ LOCAL_APPS = [
     'apps.social_auth.apps.SocialAuthConfig',
 ]
 THIRD_PARTY_APPS = [
+    'rest_framework',
     'rest_framework_simplejwt',
+    "rest_framework.authtoken",
+    'dj_rest_auth',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     "allauth.socialaccount.providers.google",
+    "dj_rest_auth.registration",
 ]
 DJANGO_APPS = [
     'jazzmin',
@@ -49,7 +58,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,7 +112,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 JAZZMIN_SETTINGS = {
     "site_brand": "MINT",
 
@@ -144,12 +152,5 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-SOCIAL_AUTH_PIPELINE = (
-    'social_core.pipeline.social_auth.social_details',
-    'social_core.pipeline.social_auth.social_uid',
-    'social_core.pipeline.social_auth.auth_allowed',
-    'social_core.pipeline.social_auth.social_user',
-    'social_core.pipeline.social_auth.associate_user',
-    'social_core.pipeline.social_auth.load_extra_data',
-    'social_core.pipeline.user.user_details',
-)
+REST_USE_JWT = True
+OAUTH_CALLBACK_URL = f"{env.str('HOST', '')}/login"

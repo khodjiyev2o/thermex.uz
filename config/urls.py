@@ -10,6 +10,6 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('accounts/', include('allauth.urls')),
-    #path('social_auth/', include('apps.social_auth.urls')),
+    path('social_auth/', include('apps.social_auth.api_endpoints.urls')),
     #path('users/', include('apps.users.urls')),
 ]
