@@ -15,7 +15,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     photo = models.FileField(upload_to='users/%Y/%m', blank=True, null=True)
     has_team = models.BooleanField(default=False)
     team_size = models.PositiveIntegerField(default=1)
-    region = models.ForeignKey(Region, on_delete=models.CASCADE)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
