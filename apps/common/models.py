@@ -1,4 +1,5 @@
 from django.db import models
+from .choices import CITY_CHOICES
 
 
 class BaseModel(models.Model):
@@ -7,3 +8,12 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+class Region(BaseModel):
+    city = models.CharField(max_length=255, choices=CITY_CHOICES)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = 'Region'
+        verbose_name_plural = 'Regions'
