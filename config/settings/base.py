@@ -21,6 +21,7 @@ LOCAL_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
+    'phonenumber_field',
 ]
 DJANGO_APPS = [
     'jazzmin',

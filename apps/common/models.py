@@ -17,3 +17,6 @@ class Region(BaseModel):
     class Meta:
         verbose_name = 'Region'
         verbose_name_plural = 'Regions'
+
+    def __str__(self):
+        return f"{self.city}"
