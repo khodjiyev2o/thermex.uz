@@ -51,9 +51,8 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
 
 
 class VerificationCode(BaseModel):
-    phone = PhoneNumberField(_("Phone number"), max_length=32, unique=True, null=True)
+    phone = PhoneNumberField(_("Phone number"), max_length=32, null=True)
     code = models.CharField(max_length=10, blank=True, help_text="This field is created automatically")
-    is_active = models.BooleanField(default=False, verbose_name="Is Active")
     expires_at = models.DateTimeField(verbose_name="Expires In", null=True, blank=True)
 
     class Meta:
@@ -69,5 +68,5 @@ class VerificationCode(BaseModel):
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.expires_at = self.created_at + timezone.timedelta(minutes=5)
+            self.expires_at = timezone.now() + timezone.timedelta(minutes=5)
         return super().save(*args, **kwargs)

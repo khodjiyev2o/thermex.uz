@@ -1,6 +1,10 @@
 from django.contrib import admin
-from .models import User
+from .models import User, VerificationCode
 
+
+@admin.register(VerificationCode)
+class VerificationCodeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'phone', 'created_at', 'expires_at',)
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
