@@ -1,0 +1,26 @@
+from apps.users.models import User, VerificationCode
+from rest_framework import serializers
+from phonenumber_field.serializerfields import PhoneNumberField
+
+
+class PhoneAuthenticationSerializer(serializers.Serializer):
+    code = serializers.CharField()
+    phone = PhoneNumberField(region="UZ")
+
+    def validate_code(self, value):
+        phone = self.initial_data.get('phone')
+        obj = VerificationCode.objects.filter(phone=phone, code=value)[0]
+        if not obj.is_expired:
+            return value
+        raise serializers.ValidationError('Invalid code')
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        print(representation)
+        return representation
+
+    def create(self, validated_data):
+        phone = validated_data.pop('phone')
+        validated_data.pop('code', None)
+        user, _ = User.objects.get_or_create(phone=phone)
+        return user

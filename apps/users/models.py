@@ -13,8 +13,8 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     last_name = models.CharField(max_length=255, null=True)
     middle_name = models.CharField(max_length=255, null=True)
     username = models.CharField(max_length=255, unique=True, null=True)
-    phone = PhoneNumberField(_("Phone number"), max_length=32, unique=True, null=True)
-    email = models.EmailField(max_length=255, unique=True)
+    phone = PhoneNumberField(_("Phone number"), max_length=32, unique=True)
+    email = models.EmailField(max_length=255, unique=True, null=True, blank=True)
     photo = models.FileField(upload_to='users/%Y/%m', blank=True, null=True)
     has_team = models.BooleanField(default=False)
     team_size = models.PositiveIntegerField(default=1)
@@ -31,7 +31,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
         if self.email:
             return self.email
         if self.phone:
-            return self.phone
+            return f"{self.phone}"
         if self.username:
             return self.username
         return f"{self.id}, User without data"
@@ -58,6 +58,7 @@ class VerificationCode(BaseModel):
     class Meta:
         verbose_name = "Verification Code"
         verbose_name_plural = "Verification Code"
+        ordering = ('-created_at',)
 
         def __str__(self):
             return f"User ID: {self.user.id} | User email: {self.code}"
