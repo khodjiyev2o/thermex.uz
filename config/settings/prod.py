@@ -1,5 +1,5 @@
 from .base import *
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['18.228.10.255']
 DATABASES = {
     'default': {
