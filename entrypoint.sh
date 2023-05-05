@@ -1,5 +1,5 @@
 #!/bin/sh
-source venv/bin/activate
+
 pip3 install -r requirements/prod.txt
 python3 manage.py makemigrations
 python3 manage.py migrate
