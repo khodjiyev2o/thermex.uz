@@ -4,7 +4,7 @@ from .models import User, VerificationCode
 
 @admin.register(VerificationCode)
 class VerificationCodeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'phone', 'created_at', 'expires_at',)
+    list_display = ('id', 'phone', 'code', 'expires_at',)
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
