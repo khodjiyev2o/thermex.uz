@@ -12,7 +12,8 @@ env = environ.Env()
 env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['*']
 
 LOCAL_APPS = [
     'apps.users.apps.UsersConfig',
@@ -22,6 +23,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'phonenumber_field',
+    'drf_yasg',
 ]
 DJANGO_APPS = [
     'jazzmin',
