@@ -9,10 +9,11 @@ class PhoneAuthenticationSerializer(serializers.Serializer):
 
     def validate_code(self, value):
         phone = self.initial_data.get('phone')
-        obj = VerificationCode.objects.filter(phone=phone, code=value)[0]
+        obj = VerificationCode.objects.filter(phone=phone, code=value).order_by('-created_at').first()
+        if obj is None:
+            raise serializers.ValidationError('Invalid code')
         if not obj.is_expired:
             return value
-        raise serializers.ValidationError('Invalid code')
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
