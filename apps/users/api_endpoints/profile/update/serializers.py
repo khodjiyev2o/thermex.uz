@@ -4,7 +4,7 @@ from apps.common.serializers import RegionSerializer
 User = get_user_model()
 
 
-class GetProfileDetailSerializer(serializers.ModelSerializer):
+class UpdateProfileSerializer(serializers.ModelSerializer):
     region = RegionSerializer()
 
     class Meta:
@@ -22,3 +22,4 @@ class GetProfileDetailSerializer(serializers.ModelSerializer):
             'team_size',
             'region',
         )
+        extra_kwargs = {"phone": {"read_only": True}}

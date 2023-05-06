@@ -9,8 +9,7 @@ from apps.common.choices import City
 class TestProfile(APITestCase):
     def setUp(self):
         self.region = Region.objects.create(city=City.Namangan, name='Namangan shahar')
-        User = get_user_model()
-        self.user = User.objects.create_user(
+        self.user = get_user_model().objects.create_user(
             phone="+998972081018",
             password="12345678",
             first_name="Samandar",

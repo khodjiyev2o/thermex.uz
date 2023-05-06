@@ -3,18 +3,18 @@ from django.utils.translation import gettext_lazy as _
 
 
 class City(models.TextChoices):
-    Tashkent = 'tashkent', _('Tashkent')
-    Samarkand = 'samarkand', _('Samarkand')
-    Bukhara = 'bukhara', _('Bukhara')
-    Khiva = 'khiva', _('Khiva')
-    Fergana = 'fergana', _('Fergana')
-    Namangan = 'namangan', _('Namangan')
-    Andijan = 'andijan', _('Andijan')
-    Navoi = 'navoi', _('Navoi')
-    Nukus = 'nukus', _('Nukus')
-    Termez = 'termez', _('Termez')
-    Urgench = 'urgench', _('Urgench')
-    Kokand = 'kokand', _('Kokand')
+    Tashkent = 'Tashkent', _('Tashkent')
+    Samarkand = 'Samarkand', _('Samarkand')
+    Bukhara = 'Bukhara', _('Bukhara')
+    Khiva = 'Khiva', _('Khiva')
+    Fergana = 'Fergana', _('Fergana')
+    Namangan = 'Namangan', _('Namangan')
+    Andijan = 'Andijan', _('Andijan')
+    Navoi = 'Navoi', _('Navoi')
+    Nukus = 'Nukus', _('Nukus')
+    Termez = 'Termez', _('Termez')
+    Urgench = 'Urgench', _('Urgench')
+    Kokand = 'Kokand', _('Kokand')
 
 
 REGION_CHOICES = {
