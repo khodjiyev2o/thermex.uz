@@ -15,6 +15,11 @@ class City(models.TextChoices):
     Termez = 'Termez', _('Termez')
     Urgench = 'Urgench', _('Urgench')
     Kokand = 'Kokand', _('Kokand')
+    Jizzakh = 'Jizzakh', _('Jizzakh')
+    Qarshi = 'Qarshi', _('Qarshi')
+    Margilan = 'Margilan', _('Margilan')
+
+
 
 
 REGION_CHOICES = {
