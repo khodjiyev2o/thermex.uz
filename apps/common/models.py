@@ -1,5 +1,5 @@
 from django.db import models
-from .choices import CITY_CHOICES
+from .choices import City
 
 
 class BaseModel(models.Model):
@@ -11,7 +11,7 @@ class BaseModel(models.Model):
 
 
 class Region(BaseModel):
-    city = models.CharField(max_length=255, choices=CITY_CHOICES)
+    city = models.CharField(max_length=255, choices=City.choices)
     name = models.CharField(max_length=255)
 
     class Meta:

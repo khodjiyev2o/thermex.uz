@@ -7,6 +7,7 @@ from .api_endpoints import auth, login, profile
 application_urlpatterns = [
     path("phone-verify/", login.PhoneVerificationView.as_view(), name="phone-verify"),
     path("check-username/", profile.CheckUsernameView.as_view(), name="check-username"),
+    path("profile/", profile.GetProfileDetailView.as_view(), name="profile-detail"),
     path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path(
