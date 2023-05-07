@@ -24,7 +24,7 @@ services:
       - .env
     volumes:
       - .:/usr/src/app
-      - ./staticfiles:/usr/src/app/staticfiles
+      - ./static:/usr/src/app/static
     ports:
       - "8001:8000"
     depends_on:
