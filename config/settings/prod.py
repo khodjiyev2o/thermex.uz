@@ -4,10 +4,10 @@ ALLOWED_HOSTS = ['18.228.10.255', '127.0.0.1']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'sammy',
-        'PASSWORD': 'password',
-        'HOST': 'thermex_db',
-        'PORT': '5432',
+        'NAME': env.str("DB_NAME"),
+        'USER': env.str("DB_USER"),
+        'PASSWORD': env.str("DB_PASSWORD"),
+        'HOST': env.str("DB_HOST"),
+        'PORT': env.str("DB_PORT"),
     }
 }
