@@ -1,16 +1,16 @@
 from pathlib import Path
 import os
 from datetime import timedelta
+import environ
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = 'django-insecure-#rns(8q3m8-eh6rzn!%z3mvh8rs^^wlfo4j)8x8q%ddq^eh2u$'
-
-DEBUG = True
-import environ
 # READING ENV
 env = environ.Env()
 env.read_env(os.path.join(BASE_DIR, ".env"))
 
+
+SECRET_KEY = env.str("SECRET_KEY")
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
@@ -101,10 +101,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = 'staticfiles/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
