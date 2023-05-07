@@ -18,13 +18,12 @@ services:
   web:
     build: .
     #command: python manage.py runserver 0.0.0.0:8000
-    command: bash -c "python3 manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000 --reload"
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --reload
     restart: always
     env_file:
       - .env
     volumes:
       - .:/usr/src/app
-      - ./static:/usr/src/app/static
     ports:
       - "8001:8000"
     depends_on:
@@ -34,6 +33,7 @@ services:
       - practise
 volumes:
   postgres_data:
+
 
 networks:
   practise:

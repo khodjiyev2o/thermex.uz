@@ -18,5 +18,10 @@ RUN pip install --upgrade pip
 RUN pip install -r prod.txt
 
 COPY ./ .
+COPY entrypoint.sh .
 
-RUN ["python3", "manage.py", "collectstatic", "--noinput"]
+# git config core.fileMode true -> to ensure that the executable bit is preserved for files
+RUN chmod +x /usr/src/app/entrypoint.sh
+ENTRYPOINT ["/usr/src/app//entrypoint.sh"]
+
+
