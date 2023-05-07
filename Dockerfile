@@ -22,4 +22,4 @@ RUN pip install -r prod.txt
 COPY ./ .
 
 RUN ["chmod", "+x", "/usr/src/app/entrypoint.sh"]
-    RUN ["/usr/src/app/entrypoint.sh"]
+RUN ["/usr/src/app/entrypoint.sh"]
