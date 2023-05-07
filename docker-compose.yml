@@ -1,22 +1,26 @@
 version: '3'
 services:
   db:
+    platform: linux/amd64
     image: postgres:13
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - .env
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_HOST=${DB_HOST}
-      - POSTGRES_PORT=${DB_PORT}
     restart: always
+    ports:
+      - "5432:5432"
+    networks:
+        - practise
+    container_name: thermex_db
   web:
     build: .
     #command: python manage.py runserver 0.0.0.0:8000
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --reload
+    security_opt:
+      - seccomp:unconfined
     restart: always
     env_file:
       - .env
@@ -27,6 +31,10 @@ services:
     depends_on:
       - db
     container_name: thermex
-
+    networks:
+      - practise
 volumes:
   postgres_data:
+
+networks:
+  practise:

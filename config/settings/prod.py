@@ -7,7 +7,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'sammy',
         'PASSWORD': 'password',
-        'HOST': 'db',
+        'HOST': 'thermex_db',
         'PORT': '5432',
     }
 }

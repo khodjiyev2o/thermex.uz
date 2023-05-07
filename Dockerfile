@@ -16,9 +16,9 @@ COPY ./requirements/prod.txt  .
 
 RUN pip install --upgrade pip
 RUN pip install -r prod.txt
+COPY ./entrypoint.sh .
 
 COPY ./ .
 
-RUN python3 manage.py makemigrations && \
-    python3 manage.py migrate && \
-    python3 manage.py collectstatic --noinput
+RUN ["chmod", "+x", "/usr/src/app/entrypoint.sh"]
+CMD ["/usr/src/app/entrypoint.sh"]
