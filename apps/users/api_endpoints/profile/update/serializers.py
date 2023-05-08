@@ -17,6 +17,8 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             'middle_name',
             'email',
             'photo',
+            'job',
+            'date_of_birth',
             'phone',
             'has_team',
             'team_size',

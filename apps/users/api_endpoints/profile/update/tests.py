@@ -3,7 +3,7 @@ from rest_framework.test import APITestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from apps.common.models import Region
-from apps.common.choices import City
+from apps.common.choices import City, Job
 
 
 class TestProfile(APITestCase):
@@ -16,6 +16,8 @@ class TestProfile(APITestCase):
             last_name="Hojiev",
             middle_name="Ulugbek",
             username="khodjiyev2o",
+            job=Job.Sotuvchi,
+            date_of_birth='2004-04-20',
             has_team=True,
             team_size=5,
             region=self.region,
@@ -37,7 +39,8 @@ class TestProfile(APITestCase):
             "first_name": "Updated first_name",
             "last_name": "Updated last_name",
             "middle_name": "Ulugbek",
-
+            "job": Job.Sotuvchi,
+            "date_of_birth": '2004-04-20',
             "email": "samandarkhodjiyev@gmail.com",
             "photo": None,
             "phone": "+998972081018",

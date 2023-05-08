@@ -20,6 +20,9 @@ class City(models.TextChoices):
     Margilan = 'Margilan', _('Margilan')
 
 
+class Job(models.TextChoices):
+    Sotuvchi = 'Sotuvchi', _('Sotuvchi')
+    Chilangar = 'Chilangar', _('Chilangar')
 
 
 REGION_CHOICES = {

@@ -15,4 +15,3 @@ class PhoneVerificationView(APIView):
                                   "tokens": user.tokens},
                                  status=status.HTTP_201_CREATED)
 
-

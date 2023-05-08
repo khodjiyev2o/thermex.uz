@@ -6,6 +6,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.utils.translation import gettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
+from apps.common.choices import Job
 
 
 class User(AbstractBaseUser, PermissionsMixin, BaseModel):
@@ -16,6 +17,8 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     phone = PhoneNumberField(_("Phone number"), max_length=32, unique=True)
     email = models.EmailField(max_length=255, unique=True, null=True, blank=True)
     photo = models.FileField(upload_to='users/%Y/%m', blank=True, null=True)
+    job = models.CharField(max_length=255, choices=Job.choices, default=Job.Chilangar)
+    date_of_birth = models.DateField(blank=True, null=True)
     has_team = models.BooleanField(default=False)
     team_size = models.PositiveIntegerField(default=1)
     region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True, blank=True)

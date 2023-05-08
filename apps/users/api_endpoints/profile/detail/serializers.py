@@ -18,6 +18,8 @@ class GetProfileDetailSerializer(serializers.ModelSerializer):
             'email',
             'photo',
             'phone',
+            'job',
+            'date_of_birth',
             'has_team',
             'team_size',
             'region',
