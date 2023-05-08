@@ -12,7 +12,7 @@ class BaseModel(models.Model):
 
 class Region(BaseModel):
     city = models.CharField(max_length=255, choices=City.choices)
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
 
     class Meta:
         verbose_name = 'Region'
