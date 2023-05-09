@@ -2,7 +2,7 @@
 from rest_framework.generics import ListAPIView
 from rest_framework.views import APIView
 from apps.common.models import Region
-from apps.common.choices import City
+from apps.common.choices import REGION_CHOICES
 from apps.common.serializers import RegionListSerializer, RegionDetailSerializer
 from django.http import JsonResponse
 
@@ -10,7 +10,7 @@ from django.http import JsonResponse
 class CityListView(APIView):
 
     def get(self, request):
-        cities = list(City.choices)
+        cities = list(REGION_CHOICES.keys())
         return JsonResponse({'cities': cities})
 
 

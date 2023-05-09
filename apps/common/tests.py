@@ -26,4 +26,4 @@ class TestProfile(APITestCase):
     def test_get_cities_list(self):
         response = self.client.get(reverse("city-list"))
         self.assertEqual(response.status_code, 200)
-        assert list([city[0] for city in response.json()['cities']]) == list(REGION_CHOICES.keys())
+        assert list(response.json()['cities']) == list(REGION_CHOICES.keys())
