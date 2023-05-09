@@ -3,7 +3,7 @@ from rest_framework import serializers
 from phonenumber_field.serializerfields import PhoneNumberField
 
 
-class PhoneAuthenticationSerializer(serializers.Serializer):
+class PhoneVerifySerializer(serializers.Serializer):
     code = serializers.CharField()
     phone = PhoneNumberField(region="UZ")
 

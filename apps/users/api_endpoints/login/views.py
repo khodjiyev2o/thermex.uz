@@ -1,10 +1,10 @@
 from rest_framework.generics import GenericAPIView
-from apps.users.api_endpoints.login.serializers import PhoneAuthenticationSerializer
+from apps.users.api_endpoints.login.serializers import PhoneVerifySerializer
 from rest_framework import status, response
 
 
 class PhoneVerificationView(GenericAPIView):
-    serializer_class = PhoneAuthenticationSerializer
+    serializer_class = PhoneVerifySerializer
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
