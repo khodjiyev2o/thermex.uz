@@ -12,11 +12,12 @@ class BaseModel(models.Model):
 
 class Region(BaseModel):
     city = models.CharField(max_length=255, choices=City.choices)
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = 'Region'
         verbose_name_plural = 'Regions'
+        unique_together = ('city', 'name')
 
     def __str__(self):
         return f"{self.city}"

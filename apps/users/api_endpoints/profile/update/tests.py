@@ -7,6 +7,7 @@ from apps.common.choices import City, Job
 
 
 class TestProfile(APITestCase):
+
     def setUp(self):
         self.region = Region.objects.create(city=City.Namangan, name='Namangan shahar')
         self.user = get_user_model().objects.create_user(

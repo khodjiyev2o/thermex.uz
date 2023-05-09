@@ -50,6 +50,6 @@ class Command(BaseCommand):
                 self.stdout.write(
                     self.style.ERROR('Error on creating "%s"' % city)
                 )
-            self.stdout.write(
-                self.style.SUCCESS('Finishing the creation of regions')
+        self.stdout.write(
+            self.style.SUCCESS('Finishing the creation of regions')
             )

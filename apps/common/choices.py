@@ -3,8 +3,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class City(models.TextChoices):
-    Tashkent = 'Tashkent shahri', _('Tashkent shahri')
-    Toshkent_viloyati = 'Toshkent viloyati', _('Toshkent viloyati')
+    TashkentShahri = 'Tashkent shahri', _('Tashkent shahri')
+    ToshkentViloyati = 'Toshkent viloyati', _('Toshkent viloyati')
     Samarkand = 'Samarkand', _('Samarkand')
     Bukhara = 'Bukhara', _('Bukhara')
     Andijon = 'Andijon', _('Andijon')

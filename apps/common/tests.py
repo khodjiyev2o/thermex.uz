@@ -1,54 +1,29 @@
-# from rest_framework.test import APITestCase
-#
-# from django.contrib.auth import get_user_model
-# from django.urls import reverse
-# from apps.common.models import Region
-# from apps.common.choices import City
-#
-#
-# class TestProfile(APITestCase):
-#     def setUp(self):
-#         self.region = Region.objects.create(city=City.Namangan, name='Namangan shahar')
-#         self.user = get_user_model().objects.create_user(
-#             phone="+998972081018",
-#             password="12345678",
-#             first_name="Samandar",
-#             last_name="Hojiev",
-#             middle_name="Ulugbek",
-#             username="khodjiyev2o",
-#             job=Job.Sotuvchi,
-#             date_of_birth='2004-04-20',
-#             has_team=True,
-#             team_size=5,
-#             region=self.region,
-#             email="samandarkhodjiyev@gmail.com",
-#         )
-#         self.maxDiff = None
-#
-#     def test_update_profile(self):
-#         data = {
-#             "first_name": "Updated first_name",
-#             "last_name": "Updated last_name",
-#             "username": "updated username",
-#         }
-#         headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
-#         response = self.client.patch(reverse("profile-update"), data=data, **headers)
-#         expected_response = {
-#             "id": self.user.id,
-#             "username": "updated username",
-#             "first_name": "Updated first_name",
-#             "last_name": "Updated last_name",
-#             "middle_name": "Ulugbek",
-#             "job": Job.Sotuvchi,
-#             "date_of_birth": '2004-04-20',
-#             "email": "samandarkhodjiyev@gmail.com",
-#             "photo": None,
-#             "phone": "+998972081018",
-#             'has_team': True,
-#             'team_size': 5,
-#             'region': {
-#                 'city': 'Namangan', 'name': 'Namangan shahar'
-#             },
-#         }
-#         self.assertEqual(response.status_code, 200)
-#         self.assertEqual(response.json(), expected_response)
+from rest_framework.test import APITestCase
+
+from django.urls import reverse
+from apps.common.models import Region
+from apps.common.choices import REGION_CHOICES, City
+
+
+class TestProfile(APITestCase):
+    regions = REGION_CHOICES
+
+    def setUp(self):
+        for city in self.regions.keys():
+            for region in self.regions[city]:
+                Region.objects.create(city=city, name=region)
+
+    def test_get_regions_list(self):
+        response = self.client.get(reverse("region-list"))
+        self.assertEqual(response.status_code, 200)
+        assert len(response.json()) == Region.objects.all().count()
+
+    def test_get_regions_detail_list(self):
+        response = self.client.get(reverse("region-detail", kwargs={'city': 'Namangan'}))
+        self.assertEqual(response.status_code, 200)
+        assert sorted([resp['name'] for resp in response.json()]) == sorted(REGION_CHOICES['Namangan'])
+
+    def test_get_cities_list(self):
+        response = self.client.get(reverse("city-list"))
+        self.assertEqual(response.status_code, 200)
+        assert list([city[0] for city in response.json()['cities']]) == list(REGION_CHOICES.keys())
