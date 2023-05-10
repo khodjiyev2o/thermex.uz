@@ -2,13 +2,14 @@ from rest_framework.test import APITestCase
 
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-from apps.common.models import Region
-from apps.common.choices import City, Job
+from apps.common.models import Region, City
+from apps.common.choices import Job, REGION_CHOICES
 
 
 class TestProfile(APITestCase):
     def setUp(self):
-        self.region = Region.objects.create(city=City.Namangan, name='Namangan shahar')
+        self.region = Region.objects.create(name=list(REGION_CHOICES.keys())[0])
+        self.city = City.objects.create(region=self.region, name=REGION_CHOICES.get('Tashkent shahri')[0])
         self.user = get_user_model().objects.create_user(
             phone="+998972081018",
             password="12345678",
@@ -20,7 +21,7 @@ class TestProfile(APITestCase):
             date_of_birth='2004-04-20',
             has_team=True,
             team_size=5,
-            region=self.region,
+            city=self.city,
             email="samandarkhodjiyev@gmail.com",
         )
         self.maxDiff = None
@@ -35,7 +36,7 @@ class TestProfile(APITestCase):
          'middle_name', 'email',
          'photo', 'phone', 'job',
          'date_of_birth', 'has_team',
-         'team_size', 'region'])
+         'team_size', 'city'])
         self.assertEqual(response.data['id'], self.user.id)
         self.assertEqual(response.data['username'], self.user.username)
         self.assertEqual(response.data['first_name'], self.user.first_name)
@@ -47,8 +48,8 @@ class TestProfile(APITestCase):
         self.assertEqual(response.data['team_size'], self.user.team_size)
         self.assertEqual(response.data['date_of_birth'], self.user.date_of_birth)
         self.assertEqual(response.data['job'], self.user.job)
-        self.assertEqual(response.json()['region']['name'], self.user.region.name)
-        self.assertEqual(response.json()['region']['city'], self.user.region.city)
+        self.assertEqual(response.json()['city']['name'], self.user.city.name)
+        self.assertEqual(response.json()['city']['region'], self.user.city.region.name)
 
     def test_get_profile_no_authentication(self):
         self.client.login(username=self.user.phone, password="12345678")

@@ -1,11 +1,19 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from apps.common.serializers import RegionListSerializer
+from apps.common.models import City
 User = get_user_model()
 
 
+class RegionListSerializer(serializers.ModelSerializer):
+    region = serializers.CharField(source='region.name')
+
+    class Meta:
+        model = City
+        fields = ('name', 'region')
+
+
 class GetProfileDetailSerializer(serializers.ModelSerializer):
-    region = RegionListSerializer()
+    city = RegionListSerializer()
 
     class Meta:
         model = User
@@ -22,5 +30,5 @@ class GetProfileDetailSerializer(serializers.ModelSerializer):
             'date_of_birth',
             'has_team',
             'team_size',
-            'region',
+            'city',
         )

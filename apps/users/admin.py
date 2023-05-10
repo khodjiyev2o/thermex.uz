@@ -8,9 +8,9 @@ class VerificationCodeAdmin(admin.ModelAdmin):
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'phone', 'first_name', 'region', 'is_staff',)
+    list_display = ('id', 'phone', 'first_name', 'city', 'is_staff',)
     list_display_links = ('id', 'phone')
-    list_filter = ('has_team', 'is_staff', 'created_at', 'region')
+    list_filter = ('has_team', 'is_staff', 'created_at', 'city')
     search_fields = (
         'id',
         'email'

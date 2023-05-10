@@ -1,5 +1,5 @@
 from django.db import models
-from .choices import City
+from django.utils.translation import gettext_lazy as _
 
 
 class BaseModel(models.Model):
@@ -11,13 +11,20 @@ class BaseModel(models.Model):
 
 
 class Region(BaseModel):
-    city = models.CharField(max_length=255, choices=City.choices)
-    name = models.CharField(max_length=255)
-
-    class Meta:
-        verbose_name = 'Region'
-        verbose_name_plural = 'Regions'
-        unique_together = ('city', 'name')
+    name = models.CharField(max_length=255,  verbose_name=_("Name"))
 
     def __str__(self):
-        return f"{self.city}"
+        return f"{self.name}"
+
+
+class City(BaseModel):
+    name = models.CharField(max_length=255, verbose_name=_("Name"))
+    region = models.ForeignKey(Region, on_delete=models.CASCADE,  verbose_name=_("City"), related_name='regions')
+
+    class Meta:
+        verbose_name = 'City'
+        verbose_name_plural = 'Cities'
+        unique_together = ('region', 'name')
+
+    def __str__(self):
+        return f"{self.name}"

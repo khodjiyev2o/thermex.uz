@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Region
+from .models import City
 
 
-@admin.register(Region)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'city', 'name')
+@admin.register(City)
+class CityAdmin(admin.ModelAdmin):
+    list_display = ('id', 'region', 'name')
 

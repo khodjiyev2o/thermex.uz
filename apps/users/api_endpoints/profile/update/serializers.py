@@ -1,11 +1,11 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from apps.common.serializers import RegionListSerializer
+from apps.users.api_endpoints.profile.detail.serializers import RegionListSerializer
 User = get_user_model()
 
 
 class UpdateProfileSerializer(serializers.ModelSerializer):
-    region = RegionListSerializer()
+    city = RegionListSerializer()
 
     class Meta:
         model = User
@@ -22,6 +22,6 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             'phone',
             'has_team',
             'team_size',
-            'region',
+            'city',
         )
         extra_kwargs = {"phone": {"read_only": True}}

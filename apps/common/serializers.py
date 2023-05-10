@@ -1,16 +1,17 @@
-from apps.common.models import Region
+from apps.common.models import Region, City
 from rest_framework import serializers
 
 
-class RegionDetailSerializer(serializers.ModelSerializer):
-
+class CitySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Region
-        fields = ("name",)
+        model = City
+        fields = ('name', )
 
 
 class RegionListSerializer(serializers.ModelSerializer):
+    cities = CitySerializer(many=True, source='regions')
 
     class Meta:
         model = Region
-        fields = ("name",'city')
+        fields = ("name", 'cities')
+

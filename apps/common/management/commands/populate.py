@@ -1,6 +1,6 @@
-from django.core.management.base import BaseCommand, CommandError
-from apps.common.models import Region
-from apps.common.choices import City, REGION_CHOICES
+from django.core.management.base import BaseCommand
+from apps.common.models import Region, City
+from apps.common.choices import REGION_CHOICES
 from django.contrib.auth import get_user_model
 from django.db import IntegrityError
 
@@ -39,12 +39,13 @@ class Command(BaseCommand):
             self.style.SUCCESS('Creating the regions')
         )
 
-        for city in self.regions.keys():
+        for region in self.regions.keys():
             try:
-                for region in self.regions[city]:
-                    Region.objects.create(city=city, name=region)
+                new_region = Region.objects.create(name=region)
+                for city in self.regions[region]:
+                    city = City.objects.create(name=city, region=new_region)
                     self.stdout.write(
-                        self.style.SUCCESS('Successfully created  "%s"' % region)
+                        self.style.SUCCESS('Successfully created  "%s"' % city)
                     )
             except IntegrityError:
                 self.stdout.write(

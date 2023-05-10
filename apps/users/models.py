@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
-from apps.common.models import BaseModel, Region
+from apps.common.models import BaseModel, City
 from .managers import UserManager
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.utils.translation import gettext_lazy as _
@@ -21,7 +21,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     date_of_birth = models.DateField(blank=True, null=True)
     has_team = models.BooleanField(default=False)
     team_size = models.PositiveIntegerField(default=1)
-    region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True, blank=True)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
