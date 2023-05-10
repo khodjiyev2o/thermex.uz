@@ -11,7 +11,7 @@ class BaseModel(models.Model):
 
 
 class Region(BaseModel):
-    name = models.CharField(max_length=255,  verbose_name=_("Name"))
+    name = models.CharField(max_length=255,  verbose_name=_("Name"), unique=True)
 
     def __str__(self):
         return f"{self.name}"
