@@ -4,7 +4,7 @@ from apps.common.models import City
 User = get_user_model()
 
 
-class RegionListSerializer(serializers.ModelSerializer):
+class UserRegionListSerializer(serializers.ModelSerializer):
     region = serializers.CharField(source='region.name')
 
     class Meta:
@@ -13,7 +13,7 @@ class RegionListSerializer(serializers.ModelSerializer):
 
 
 class GetProfileDetailSerializer(serializers.ModelSerializer):
-    city = RegionListSerializer()
+    city = UserRegionListSerializer()
 
     class Meta:
         model = User

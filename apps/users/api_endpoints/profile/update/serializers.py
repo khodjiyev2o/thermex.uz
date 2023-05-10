@@ -1,11 +1,11 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from apps.users.api_endpoints.profile.detail.serializers import RegionListSerializer
+from apps.users.api_endpoints.profile.detail.serializers import UserRegionListSerializer
 User = get_user_model()
 
 
 class UpdateProfileSerializer(serializers.ModelSerializer):
-    city = RegionListSerializer()
+    city = UserRegionListSerializer()
 
     class Meta:
         model = User
