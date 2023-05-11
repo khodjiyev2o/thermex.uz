@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from datetime import timedelta
 import environ
+from django.utils.translation import gettext_lazy as _
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # READING ENV
@@ -28,6 +29,7 @@ THIRD_PARTY_APPS = [
 ]
 DJANGO_APPS = [
     'jazzmin',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +50,7 @@ INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -95,13 +98,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
 USE_TZ = True
+USE_L10N = True
+
 
 STATIC_URL = "staticfiles/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -134,4 +139,20 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=99),
 }
 
+MODELTRANSLATION_LANGUAGES = ("uz", "ru")
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+gettext = lambda s: s
+LANGUAGES = (
+    ("uz", _("Uzbek")),
+    ("ru", _("Russian")),
+)
+MODELTRANSLATION_LANGUAGES_CHOICES = (
+    ("uz", _("Uzbek")),
+    ("ru", _("Russian")),
+)
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('uz', 'ru')
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/',
+]
 

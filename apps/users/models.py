@@ -10,21 +10,21 @@ from apps.common.choices import Job
 
 
 class User(AbstractBaseUser, PermissionsMixin, BaseModel):
-    first_name = models.CharField(max_length=255, null=True)
-    last_name = models.CharField(max_length=255, null=True)
-    middle_name = models.CharField(max_length=255, null=True)
-    username = models.CharField(max_length=255, unique=True, null=True)
+    first_name = models.CharField(_("First Name"), max_length=255, null=True, )
+    last_name = models.CharField(_("Last Name"), max_length=255, null=True)
+    middle_name = models.CharField(_("Middle Name"), max_length=255, null=True)
+    username = models.CharField(_("Username"), max_length=255, unique=True, null=True)
     phone = PhoneNumberField(_("Phone number"), max_length=32, unique=True)
-    email = models.EmailField(max_length=255, unique=True, null=True, blank=True)
-    photo = models.FileField(upload_to='users/%Y/%m', blank=True, null=True)
-    job = models.CharField(max_length=255, choices=Job.choices, default=Job.Chilangar)
-    date_of_birth = models.DateField(blank=True, null=True)
-    has_team = models.BooleanField(default=False)
-    team_size = models.PositiveIntegerField(default=1)
-    city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
+    email = models.EmailField(_("Email"), max_length=255, unique=True, null=True, blank=True)
+    photo = models.FileField(_("Photo"), upload_to='users/%Y/%m', blank=True, null=True)
+    job = models.CharField(_("Job"), max_length=255, choices=Job.choices, default=Job.Chilangar)
+    date_of_birth = models.DateField(_("Data of Birth"), blank=True, null=True)
+    has_team = models.BooleanField(_("Has Team"), default=False)
+    team_size = models.PositiveIntegerField(_("Team Size"), default=1)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name=_("City"), null=True, blank=True)
+    is_active = models.BooleanField(_("Is Active"), default=True)
+    is_staff = models.BooleanField(_("Is Staff"), default=False)
+    is_superuser = models.BooleanField(_("Is SuperUser"), default=False)
 
     objects = UserManager()
     USERNAME_FIELD = 'phone'
@@ -49,18 +49,18 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
         return {'access': str(token.access_token), 'refresh': str(token)}
 
     class Meta:
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
+        verbose_name = _('User')
+        verbose_name_plural = _('Users')
 
 
 class VerificationCode(BaseModel):
     phone = PhoneNumberField(_("Phone number"), max_length=32, null=True)
-    code = models.CharField(max_length=10, blank=True, help_text="This field is created automatically")
-    expires_at = models.DateTimeField(verbose_name="Expires In", null=True, blank=True)
+    code = models.CharField(_("Code"), max_length=10, blank=True,)
+    expires_at = models.DateTimeField(verbose_name=_("Expires In"), null=True, blank=True)
 
     class Meta:
-        verbose_name = "Verification Code"
-        verbose_name_plural = "Verification Code"
+        verbose_name = _("Verification Code")
+        verbose_name_plural = _("Verification Codes")
         ordering = ('-created_at',)
 
         def __str__(self):

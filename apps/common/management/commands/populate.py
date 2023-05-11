@@ -4,6 +4,7 @@ from apps.common.choices import REGION_CHOICES
 from django.contrib.auth import get_user_model
 from django.db import IntegrityError
 
+from googletrans import Translator
 User = get_user_model()
 
 
@@ -11,6 +12,8 @@ class Command(BaseCommand):
     help = "Populates db with initial data"
     phones = ['+998913665113', '+998975470007']
     regions = REGION_CHOICES
+    languages = ['uz', 'ru', 'en']
+    translator = Translator()
     """add_arguments is used for additional arguments"""
     # def add_arguments(self, parser):
     #     parser.add_argument("poll_ids", nargs="+", type=int)
@@ -38,7 +41,6 @@ class Command(BaseCommand):
         self.stdout.write(
             self.style.SUCCESS('Creating the regions')
         )
-
         for region in self.regions.keys():
             try:
                 new_region = Region.objects.create(name=region)
@@ -49,8 +51,8 @@ class Command(BaseCommand):
                     )
             except IntegrityError:
                 self.stdout.write(
-                    self.style.ERROR('Error on creating "%s"' % city)
+                    self.style.ERROR('Error on creating "%s"' % region)
                 )
         self.stdout.write(
-            self.style.SUCCESS('Finishing the creation of regions')
-            )
+                self.style.SUCCESS('Finishing the creation of regions')
+        )

@@ -48,9 +48,7 @@ class TestProfile(APITestCase):
             "phone": "+998972081018",
             'has_team': True,
             'team_size': 5,
-            'city': {
-                'name': self.user.city.name, 'region': self.user.city.region.name
-            },
+            'city': self.city.id
         }
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), expected_response)

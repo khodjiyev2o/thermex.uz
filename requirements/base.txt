@@ -11,5 +11,7 @@ django-phonenumber-field==7.0.2
 phonenumbers==8.13.4
 psycopg2-binary==2.9.5
 drf-yasg==1.21.5
-
+django-modeltranslation==0.18.9
+django-parler==2.3
+googletrans==4.0.0rc1
 

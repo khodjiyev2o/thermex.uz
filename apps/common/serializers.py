@@ -5,7 +5,7 @@ from rest_framework import serializers
 class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
-        fields = ('name', )
+        fields = ('id', 'name',)
 
 
 class RegionListSerializer(serializers.ModelSerializer):

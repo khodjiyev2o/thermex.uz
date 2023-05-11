@@ -1,6 +1,7 @@
 from apps.users.models import User, VerificationCode
 from rest_framework import serializers
 from phonenumber_field.serializerfields import PhoneNumberField
+from django.utils.translation import gettext_lazy as _
 
 
 class PhoneVerifySerializer(serializers.Serializer):
@@ -11,7 +12,7 @@ class PhoneVerifySerializer(serializers.Serializer):
         phone = self.initial_data.get('phone')
         obj = VerificationCode.objects.filter(phone=phone, code=value).order_by('-created_at').first()
         if obj is None:
-            raise serializers.ValidationError('Invalid code')
+            raise serializers.ValidationError(_('Invalid code'))
         if not obj.is_expired:
             return value
 
