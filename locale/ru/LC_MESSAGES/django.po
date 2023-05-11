@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 09:43+0500\n"
+"POT-Creation-Date: 2023-05-11 17:07+0500\n"
 "PO-Revision-Date: 2023-05-10 22:35+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -95,7 +95,7 @@ msgstr "Создан в"
 msgid "Updated at"
 msgstr "Обновлено в"
 
-#: apps/common/models.py:14 apps/common/models.py:25
+#: apps/common/models.py:14 apps/common/models.py:25 apps/common/models.py:38
 msgid "Name"
 msgstr "Имя"
 
@@ -107,13 +107,21 @@ msgstr "Область"
 msgid "Regions"
 msgstr "Области"
 
-#: apps/common/models.py:26 apps/common/models.py:29 apps/users/models.py:24
+#: apps/common/models.py:26 apps/common/models.py:29 apps/users/models.py:23
 msgid "City"
 msgstr "Город"
 
 #: apps/common/models.py:30
 msgid "Cities"
 msgstr "Города"
+
+#: apps/common/models.py:41 apps/users/models.py:19
+msgid "Occupation"
+msgstr "Профессия"
+
+#: apps/common/models.py:42
+msgid "Occupations"
+msgstr "Профессии"
 
 #: apps/users/api_endpoints/login/serializers.py:15
 msgid "Invalid code"
@@ -123,101 +131,93 @@ msgstr "Неверный код"
 msgid "Username is already taken"
 msgstr "Имя пользователя уже используется"
 
-#: apps/users/models.py:13
+#: apps/users/models.py:12
 msgid "First Name"
 msgstr "Имя"
 
-#: apps/users/models.py:14
+#: apps/users/models.py:13
 #, fuzzy
 #| msgid "Name"
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: apps/users/models.py:15
+#: apps/users/models.py:14
 msgid "Middle Name"
 msgstr "Отечество"
 
-#: apps/users/models.py:16
+#: apps/users/models.py:15
 #, fuzzy
 #| msgid "User"
 msgid "Username"
 msgstr "Имя Пользователя"
 
-#: apps/users/models.py:17 apps/users/models.py:57
+#: apps/users/models.py:16 apps/users/models.py:56
 msgid "Phone number"
 msgstr "Номер телефона"
 
-#: apps/users/models.py:18
+#: apps/users/models.py:17
 msgid "Email"
 msgstr "Электронная почта"
 
-#: apps/users/models.py:19
+#: apps/users/models.py:18
 msgid "Photo"
 msgstr "Фото"
 
 #: apps/users/models.py:20
-msgid "Job"
-msgstr "Профессия"
-
-#: apps/users/models.py:21
 msgid "Data of Birth"
 msgstr "Дата рождения"
 
-#: apps/users/models.py:22
+#: apps/users/models.py:21
 msgid "Has Team"
 msgstr "Есть команда"
 
-#: apps/users/models.py:23
+#: apps/users/models.py:22
 msgid "Team Size"
 msgstr "Размер команды"
 
-#: apps/users/models.py:25
+#: apps/users/models.py:24
 msgid "Is Active"
 msgstr "Активен"
 
-#: apps/users/models.py:26
+#: apps/users/models.py:25
 msgid "Is Staff"
 msgstr "Персонал"
 
-#: apps/users/models.py:27
+#: apps/users/models.py:26
 msgid "Is SuperUser"
 msgstr "Является суперпользователем"
 
-#: apps/users/models.py:52
+#: apps/users/models.py:51
 msgid "User"
 msgstr "Пользователь"
 
-#: apps/users/models.py:53
+#: apps/users/models.py:52
 msgid "Users"
 msgstr "Пользователи"
 
-#: apps/users/models.py:58
+#: apps/users/models.py:57
 msgid "Code"
 msgstr "Код"
 
-#: apps/users/models.py:59
+#: apps/users/models.py:58
 msgid "Expires In"
 msgstr "Истекает в "
 
-#: apps/users/models.py:62
+#: apps/users/models.py:61
 msgid "Verification Code"
 msgstr "Проверочный код"
 
-#: apps/users/models.py:63
+#: apps/users/models.py:62
 msgid "Verification Codes"
 msgstr "Проверочные коды"
 
-#: config/settings/base.py:146 config/settings/base.py:151
-msgid "Russian"
-msgstr "Русский"
-
-#: config/settings/base.py:147 config/settings/base.py:152
+#: config/settings/base.py:146 config/settings/base.py:150
 msgid "Uzbek"
 msgstr "Узбек"
 
-#: config/settings/base.py:148 config/settings/base.py:153
-msgid "English"
-msgstr "Английский"
+#: config/settings/base.py:147 config/settings/base.py:151
+msgid "Russian"
+msgstr "Русский"
 
 #: venv/lib/python3.9/site-packages/django/contrib/messages/apps.py:15
 msgid "Messages"
@@ -1444,3 +1444,9 @@ msgstr ""
 #: venv/lib/python3.9/site-packages/modeltranslation/widgets.py:26
 msgid "None"
 msgstr ""
+
+#~ msgid "Job"
+#~ msgstr "Профессия"
+
+#~ msgid "English"
+#~ msgstr "Английский"

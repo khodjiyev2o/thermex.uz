@@ -7,6 +7,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
+RUN apt-get update && \
+    apt-get install gettext -y
 
 COPY ./requirements/base.txt  .
 COPY ./requirements/prod.txt  .

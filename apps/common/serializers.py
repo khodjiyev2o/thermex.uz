@@ -1,4 +1,4 @@
-from apps.common.models import Region, City
+from apps.common.models import Region, City, Occupation
 from rest_framework import serializers
 
 
@@ -15,3 +15,9 @@ class RegionListSerializer(serializers.ModelSerializer):
         model = Region
         fields = ("name", 'cities')
 
+
+class OccupationListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Occupation
+        fields = ('id', 'name',)

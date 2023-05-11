@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 09:43+0500\n"
+"POT-Creation-Date: 2023-05-11 17:07+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Authentication credentials were not provided."
+msgstr "Autentifikatsiya maʼlumotlari taqdim etilmagan."
 
 #: apps/common/choices.py:6
 msgid "Tashkent shahri"
@@ -96,7 +99,7 @@ msgstr "Yaratilgan"
 msgid "Updated at"
 msgstr "Yangilangan"
 
-#: apps/common/models.py:14 apps/common/models.py:25
+#: apps/common/models.py:14 apps/common/models.py:25 apps/common/models.py:38
 msgid "Name"
 msgstr "Ism"
 
@@ -108,13 +111,21 @@ msgstr "Viloyat"
 msgid "Regions"
 msgstr "Viloyatlar"
 
-#: apps/common/models.py:26 apps/common/models.py:29 apps/users/models.py:24
+#: apps/common/models.py:26 apps/common/models.py:29 apps/users/models.py:23
 msgid "City"
 msgstr "Shahar"
 
 #: apps/common/models.py:30
 msgid "Cities"
 msgstr "Shaharlar"
+
+#: apps/common/models.py:41 apps/users/models.py:19
+msgid "Occupation"
+msgstr "Ishchi"
+
+#: apps/common/models.py:42
+msgid "Occupations"
+msgstr "Ishchilar"
 
 #: apps/users/api_endpoints/login/serializers.py:15
 msgid "Invalid code"
@@ -124,99 +135,91 @@ msgstr "Notugri kod"
 msgid "Username is already taken"
 msgstr "Foydalanuvchi nomi allaqachon olingan"
 
-#: apps/users/models.py:13
+#: apps/users/models.py:12
 msgid "First Name"
 msgstr "Ism"
 
-#: apps/users/models.py:14
+#: apps/users/models.py:13
 #, fuzzy
 #| msgid "Name"
 msgid "Last Name"
 msgstr "Familiya"
 
-#: apps/users/models.py:15
+#: apps/users/models.py:14
 msgid "Middle Name"
 msgstr "Sharif"
 
-#: apps/users/models.py:16
+#: apps/users/models.py:15
 msgid "Username"
 msgstr "Foydalanuvchi ismi"
 
-#: apps/users/models.py:17 apps/users/models.py:57
+#: apps/users/models.py:16 apps/users/models.py:56
 msgid "Phone number"
 msgstr "Telefon raqami"
 
-#: apps/users/models.py:18
+#: apps/users/models.py:17
 msgid "Email"
 msgstr "Elektron pochta"
 
-#: apps/users/models.py:19
+#: apps/users/models.py:18
 msgid "Photo"
 msgstr "Surat"
 
 #: apps/users/models.py:20
-msgid "Job"
-msgstr "Kasb"
-
-#: apps/users/models.py:21
 msgid "Data of Birth"
 msgstr "Tug'ilgan sa'na"
 
-#: apps/users/models.py:22
+#: apps/users/models.py:21
 msgid "Has Team"
 msgstr "Jamoasi bor"
 
-#: apps/users/models.py:23
+#: apps/users/models.py:22
 msgid "Team Size"
 msgstr "Jamoa hajmi"
 
-#: apps/users/models.py:25
+#: apps/users/models.py:24
 msgid "Is Active"
 msgstr "Faol"
 
-#: apps/users/models.py:26
+#: apps/users/models.py:25
 msgid "Is Staff"
 msgstr "Xodim"
 
-#: apps/users/models.py:27
+#: apps/users/models.py:26
 msgid "Is SuperUser"
 msgstr "Admin"
 
-#: apps/users/models.py:52
+#: apps/users/models.py:51
 msgid "User"
 msgstr "Foydalanuvchi"
 
-#: apps/users/models.py:53
+#: apps/users/models.py:52
 msgid "Users"
 msgstr "Foydalanuvchilar"
 
-#: apps/users/models.py:58
+#: apps/users/models.py:57
 msgid "Code"
 msgstr "Kod"
 
-#: apps/users/models.py:59
+#: apps/users/models.py:58
 msgid "Expires In"
 msgstr "Muddati tugaydi"
 
-#: apps/users/models.py:62
+#: apps/users/models.py:61
 msgid "Verification Code"
 msgstr "Tasdiq kodi"
 
-#: apps/users/models.py:63
+#: apps/users/models.py:62
 msgid "Verification Codes"
 msgstr "Tasdiq kodlar"
 
-#: config/settings/base.py:146 config/settings/base.py:151
-msgid "Russian"
-msgstr "Rus tili"
-
-#: config/settings/base.py:147 config/settings/base.py:152
+#: config/settings/base.py:146 config/settings/base.py:150
 msgid "Uzbek"
 msgstr "O'zbek"
 
-#: config/settings/base.py:148 config/settings/base.py:153
-msgid "English"
-msgstr "Ingliz tili"
+#: config/settings/base.py:147 config/settings/base.py:151
+msgid "Russian"
+msgstr "Rus tili"
 
 #: venv/lib/python3.9/site-packages/django/contrib/messages/apps.py:15
 msgid "Messages"
@@ -1428,3 +1431,9 @@ msgstr ""
 #: venv/lib/python3.9/site-packages/modeltranslation/widgets.py:26
 msgid "None"
 msgstr ""
+
+#~ msgid "Job"
+#~ msgstr "Kasb"
+
+#~ msgid "English"
+#~ msgstr "Ingliz tili"

@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import User, VerificationCode
+from .models import User, VerificationCode, Occupation
 
 
 @admin.register(VerificationCode)
 class VerificationCodeAdmin(admin.ModelAdmin):
     list_display = ('id', 'phone', 'code', 'expires_at',)
+
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
@@ -21,5 +22,8 @@ class UserAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(Occupation)
+class OccupationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
 
 

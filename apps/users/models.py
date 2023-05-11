@@ -1,23 +1,22 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
-from apps.common.models import BaseModel, City
+from apps.common.models import BaseModel, City, Occupation
 from .managers import UserManager
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.utils.translation import gettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
-from apps.common.choices import Job
 
 
 class User(AbstractBaseUser, PermissionsMixin, BaseModel):
-    first_name = models.CharField(_("First Name"), max_length=255, null=True, )
+    first_name = models.CharField(_("First Name"), max_length=255, null=True)
     last_name = models.CharField(_("Last Name"), max_length=255, null=True)
     middle_name = models.CharField(_("Middle Name"), max_length=255, null=True)
     username = models.CharField(_("Username"), max_length=255, unique=True, null=True)
     phone = PhoneNumberField(_("Phone number"), max_length=32, unique=True)
     email = models.EmailField(_("Email"), max_length=255, unique=True, null=True, blank=True)
     photo = models.FileField(_("Photo"), upload_to='users/%Y/%m', blank=True, null=True)
-    job = models.CharField(_("Job"), max_length=255, choices=Job.choices, default=Job.Chilangar)
+    job = models.ForeignKey(Occupation, verbose_name=_("Occupation"), null=True, on_delete=models.CASCADE)
     date_of_birth = models.DateField(_("Data of Birth"), blank=True, null=True)
     has_team = models.BooleanField(_("Has Team"), default=False)
     team_size = models.PositiveIntegerField(_("Team Size"), default=1)
