@@ -18,7 +18,6 @@ class PhoneVerifySerializer(serializers.Serializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        print(representation)
         return representation
 
     def create(self, validated_data):

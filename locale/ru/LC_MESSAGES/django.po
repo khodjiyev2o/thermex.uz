@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 17:07+0500\n"
+"POT-Creation-Date: 2023-05-13 01:16+0500\n"
 "PO-Revision-Date: 2023-05-10 22:35+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -83,10 +83,6 @@ msgstr "Продавец"
 msgid "Chilangar"
 msgstr "Монтажник"
 
-#: apps/common/mixins.py:24
-msgid "General "
-msgstr "Общий "
-
 #: apps/common/models.py:6
 msgid "Created at"
 msgstr "Создан в"
@@ -96,6 +92,7 @@ msgid "Updated at"
 msgstr "Обновлено в"
 
 #: apps/common/models.py:14 apps/common/models.py:25 apps/common/models.py:38
+#: apps/products/models.py:8 apps/products/models.py:32
 msgid "Name"
 msgstr "Имя"
 
@@ -122,6 +119,43 @@ msgstr "Профессия"
 #: apps/common/models.py:42
 msgid "Occupations"
 msgstr "Профессии"
+
+#: apps/products/models.py:11 apps/products/models.py:19
+msgid "Category"
+msgstr "Категория"
+
+#: apps/products/models.py:12
+msgid "Categories"
+msgstr "Категории"
+
+#: apps/products/models.py:20 apps/products/models.py:23
+#: apps/products/models.py:24 apps/products/models.py:33
+msgid "Brand"
+msgstr "Брэнд"
+
+#: apps/products/models.py:34
+msgid "Point"
+msgstr "Баллы"
+
+#: apps/products/models.py:37 apps/products/models.py:46
+msgid "Product"
+msgstr "Товар"
+
+#: apps/products/models.py:38
+msgid "Products"
+msgstr "Товары"
+
+#: apps/products/models.py:47 apps/users/models.py:51
+msgid "User"
+msgstr "Пользователь"
+
+#: apps/products/models.py:50
+msgid "SoldProduct"
+msgstr "Проданный Товар"
+
+#: apps/products/models.py:51
+msgid "SoldProducts"
+msgstr "Проданные Товары"
 
 #: apps/users/api_endpoints/login/serializers.py:15
 msgid "Invalid code"
@@ -187,10 +221,6 @@ msgstr "Персонал"
 msgid "Is SuperUser"
 msgstr "Является суперпользователем"
 
-#: apps/users/models.py:51
-msgid "User"
-msgstr "Пользователь"
-
 #: apps/users/models.py:52
 msgid "Users"
 msgstr "Пользователи"
@@ -211,11 +241,11 @@ msgstr "Проверочный код"
 msgid "Verification Codes"
 msgstr "Проверочные коды"
 
-#: config/settings/base.py:146 config/settings/base.py:150
+#: config/settings/base.py:148 config/settings/base.py:152
 msgid "Uzbek"
 msgstr "Узбек"
 
-#: config/settings/base.py:147 config/settings/base.py:151
+#: config/settings/base.py:149 config/settings/base.py:153
 msgid "Russian"
 msgstr "Русский"
 
@@ -1444,6 +1474,9 @@ msgstr ""
 #: venv/lib/python3.9/site-packages/modeltranslation/widgets.py:26
 msgid "None"
 msgstr ""
+
+#~ msgid "General "
+#~ msgstr "Общий "
 
 #~ msgid "Job"
 #~ msgstr "Профессия"

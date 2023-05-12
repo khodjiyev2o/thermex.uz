@@ -487,3 +487,87 @@ regions_translations = {
     'Xorazm': 'Хорезмская область',
 }
 
+
+category_choices = ['Water Heaters', 'Boilers']
+category_choices_translations = {'Boilers': 'Котлы', 'Water Heaters': 'Водонагреватели'}
+category_brand_dict = {
+    'Water Heaters': ['GIRO', 'SILVERHEAT', 'NOVA', 'Nobel', 'Thermo', 'TITANIUMHEAT', 'GARANTERM'],
+    'Boilers': ['Mizudo', 'ETALON']
+}
+
+brand_product_dict = {
+    'GIRO': [
+        'GIRO 50 V/H',
+        'GIRO 80 V/H',
+        'GIRO 100 V/H'
+    ],
+    'SILVERHEAT': [
+        "ECO FLAT 30V",
+        "ERS 50 V SILVERHEAT",
+        "ERS 80 V SILVERHEAT",
+        "ERS 100 V SILVERHEAT",
+        "ERS 150 V SILVERHEAT",
+        "ESS 30 V Slim SILVERHEAT",
+        "ESS 50 V Slim SILVERHEAT",
+        "ESS 50 H Slim SILVERHEAT",
+        "ESS 80 V Slim SILVERHEAT",
+    ],
+    'NOVA': [
+        "NOVA 50 V",
+        "NOVA 80 V",
+        "NOVA 100 V",
+    ],
+    'Nobel': [
+        "Nobel 10 0",
+        "Nobel 10 U",
+        "Nobel 15 O",
+        "Nobel 15 U",
+    ],
+    'Thermo': [
+        "THERMO 30 V Slim",
+        "THERMO 50 V Slim",
+        "THERMO 80 V",
+        "THERMO 100 V",
+        "THERMO 150 V",
+    ],
+    'TITANIUMHEAT': [
+        "TITANIUMHEAT 50 V",
+        "TITANIUMHEAT 80 V",
+        "TITANIUMHEAT 80 H ",
+        "TITANIUMHEAT 100 V",
+        "TITANIUMHEAT 150 V",
+        "TITANIUMHEAT ES 30 V",
+        "TITANIUMHEAT ES 50 H Slim ",
+        "TITANIUMHEAT ES 50 V Slim",
+    ],
+    'GARANTERM': [
+        "ECO 50V",
+        "ECO 80V",
+        "ECO 100V",
+        "ORIGIN 50 V",
+        "ORIGIN 80 V",
+        "ORIGIN 80H (rop)",
+        "ORIGIN 100V",
+        "ORIGIN 150 V",
+        "ORIGIN SLIM 30 V",
+        "ORIGIN SLIM 50 H",
+        "ORIGIN SLIM 50 V",
+        "ORIGIN SLIM 65 V",
+        "ORIGIN SLIM 80 V",
+    ],
+    'Mizudo': [
+        "M 15 T MIZUDO",
+        "M 17T MIZUDO",
+        "M 24 T MIZUDO",
+        "M 36 T MIZUDO",
+        "M 40 T MIZUDO",
+    ],
+    'ETALON': [
+        "ER 50 V ETALON",
+        "ER 80 V ETALON",
+        "ER 100 V ETALON",
+        "ER 150 V ETALON",
+        "ES 30 V ETALON Slim",
+        "ES 50 V ETALON Slim",
+    ],
+}

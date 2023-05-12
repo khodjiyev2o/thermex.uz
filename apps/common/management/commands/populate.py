@@ -1,6 +1,8 @@
 from django.core.management.base import BaseCommand
 from apps.common.models import Region, City, Occupation
-from apps.common.choices import REGION_CHOICES, Job, regions_translations, cities_translations
+from apps.products.models import Product, Category, Brand
+from apps.common.choices import REGION_CHOICES, regions_translations, cities_translations, \
+    category_choices, category_choices_translations, category_brand_dict, brand_product_dict
 from django.contrib.auth import get_user_model
 from django.db import IntegrityError
 
@@ -22,6 +24,7 @@ class Command(BaseCommand):
         self.super_user()
         self.create_occupations()
         self.create_regions()
+        self.create_products()
 
     def super_user(self):
         self.stdout.write(
@@ -42,14 +45,11 @@ class Command(BaseCommand):
         self.stdout.write(
             self.style.SUCCESS('Creating the regions')
         )
-        i = 0
         for region in self.regions.keys():
             region_ru = self.translated_regions[region]
-            print("region_ru", region_ru)
             try:
                 new_region = Region.objects.create(name=region, name_ru=region_ru)
                 for city in self.regions[region]:
-                    i += 1
                     try:
                         city_ru = self.translated_cities[region][city]
                         print("city_ru", city_ru)
@@ -66,7 +66,6 @@ class Command(BaseCommand):
         self.stdout.write(
                 self.style.SUCCESS('Finishing the creation of regions')
         )
-        print("number of regions", i)
 
     def create_occupations(self):
         self.stdout.write(
@@ -89,3 +88,17 @@ class Command(BaseCommand):
             self.stdout.write(
                 self.style.SUCCESS('Finished creating  the jobs')
             )
+
+    def create_products(self):
+        self.stdout.write(
+            self.style.SUCCESS('Creating the products')
+        )
+        for category in category_choices:
+            category_instance = Category.objects.create(name=category, name_ru=category_choices_translations[category])
+            for brand in category_brand_dict[category]:
+                brand_instance = Brand.objects.create(name=brand, category=category_instance)
+                for product in brand_product_dict[brand]:
+                    Product.objects.create(name=product, brand=brand_instance)
+        self.stdout.write(
+            self.style.SUCCESS('Finishing creation of  the products')
+        )

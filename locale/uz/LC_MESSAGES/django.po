@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 17:07+0500\n"
+"POT-Creation-Date: 2023-05-13 01:16+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Authentication credentials were not provided."
-msgstr "Autentifikatsiya maʼlumotlari taqdim etilmagan."
 
 #: apps/common/choices.py:6
 msgid "Tashkent shahri"
@@ -85,12 +82,6 @@ msgstr "Sotuvchi"
 msgid "Chilangar"
 msgstr "Chilangar"
 
-#: apps/common/mixins.py:24
-#, fuzzy
-#| msgid "General"
-msgid "General "
-msgstr "Umumiy"
-
 #: apps/common/models.py:6
 msgid "Created at"
 msgstr "Yaratilgan"
@@ -100,6 +91,7 @@ msgid "Updated at"
 msgstr "Yangilangan"
 
 #: apps/common/models.py:14 apps/common/models.py:25 apps/common/models.py:38
+#: apps/products/models.py:8 apps/products/models.py:32
 msgid "Name"
 msgstr "Ism"
 
@@ -126,6 +118,43 @@ msgstr "Ishchi"
 #: apps/common/models.py:42
 msgid "Occupations"
 msgstr "Ishchilar"
+
+#: apps/products/models.py:11 apps/products/models.py:19
+msgid "Category"
+msgstr "Kategoriya"
+
+#: apps/products/models.py:12
+msgid "Categories"
+msgstr "Kategoriyalar"
+
+#: apps/products/models.py:20 apps/products/models.py:23
+#: apps/products/models.py:24 apps/products/models.py:33
+msgid "Brand"
+msgstr "Brend"
+
+#: apps/products/models.py:34
+msgid "Point"
+msgstr "Ball"
+
+#: apps/products/models.py:37 apps/products/models.py:46
+msgid "Product"
+msgstr "Tovar"
+
+#: apps/products/models.py:38
+msgid "Products"
+msgstr "Tovarlar"
+
+#: apps/products/models.py:47 apps/users/models.py:51
+msgid "User"
+msgstr "Foydalanuvchi"
+
+#: apps/products/models.py:50
+msgid "SoldProduct"
+msgstr "Sotilgan Tovar"
+
+#: apps/products/models.py:51
+msgid "SoldProducts"
+msgstr "Sotilgan Tovarlar"
 
 #: apps/users/api_endpoints/login/serializers.py:15
 msgid "Invalid code"
@@ -189,10 +218,6 @@ msgstr "Xodim"
 msgid "Is SuperUser"
 msgstr "Admin"
 
-#: apps/users/models.py:51
-msgid "User"
-msgstr "Foydalanuvchi"
-
 #: apps/users/models.py:52
 msgid "Users"
 msgstr "Foydalanuvchilar"
@@ -213,11 +238,11 @@ msgstr "Tasdiq kodi"
 msgid "Verification Codes"
 msgstr "Tasdiq kodlar"
 
-#: config/settings/base.py:146 config/settings/base.py:150
+#: config/settings/base.py:148 config/settings/base.py:152
 msgid "Uzbek"
 msgstr "O'zbek"
 
-#: config/settings/base.py:147 config/settings/base.py:151
+#: config/settings/base.py:149 config/settings/base.py:153
 msgid "Russian"
 msgstr "Rus tili"
 
@@ -1431,6 +1456,14 @@ msgstr ""
 #: venv/lib/python3.9/site-packages/modeltranslation/widgets.py:26
 msgid "None"
 msgstr ""
+
+#~ msgid "Authentication credentials were not provided."
+#~ msgstr "Autentifikatsiya maʼlumotlari taqdim etilmagan."
+
+#, fuzzy
+#~| msgid "General"
+#~ msgid "General "
+#~ msgstr "Umumiy"
 
 #~ msgid "Job"
 #~ msgstr "Kasb"
