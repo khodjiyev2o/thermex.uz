@@ -12,6 +12,7 @@ class PhoneVerificationView(GenericAPIView):
         user = serializer.save()
         return response.Response({"success": True,
                                   "message": "Phone number verified successfully",
+                                  "is_new": True if not user.first_name else False,
                                   "tokens": user.tokens},
                                  status=status.HTTP_201_CREATED)
 

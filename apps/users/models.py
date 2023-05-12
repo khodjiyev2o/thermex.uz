@@ -9,7 +9,7 @@ from django.utils import timezone
 
 
 class User(AbstractBaseUser, PermissionsMixin, BaseModel):
-    first_name = models.CharField(_("First Name"), max_length=255, null=True)
+    first_name = models.CharField(_("First Name"), max_length=255)
     last_name = models.CharField(_("Last Name"), max_length=255, null=True)
     middle_name = models.CharField(_("Middle Name"), max_length=255, null=True)
     username = models.CharField(_("Username"), max_length=255, unique=True, null=True)
