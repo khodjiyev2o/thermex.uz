@@ -35,7 +35,7 @@ class City(BaseModel):
 
 
 class Occupation(BaseModel):
-    name = models.CharField(max_length=255, verbose_name=_("Name"))
+    name = models.CharField(max_length=255, verbose_name=_("Name"), unique=True)
 
     class Meta:
         verbose_name = _('Occupation')
