@@ -1475,11 +1475,12 @@ msgstr ""
 msgid "None"
 msgstr ""
 
+
+msgid "Authentication credentials were not provided."
+msgstr "Учетные данные для аутентификации не были предоставлены."
 #~ msgid "General "
 #~ msgstr "Общий "
 
-#~ msgid "Job"
-#~ msgstr "Профессия"
 
 #~ msgid "English"
 #~ msgstr "Английский"

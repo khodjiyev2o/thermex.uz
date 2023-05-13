@@ -1457,16 +1457,16 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#~ msgid "Authentication credentials were not provided."
-#~ msgstr "Autentifikatsiya maʼlumotlari taqdim etilmagan."
+msgid "Authentication credentials were not provided."
+msgstr "Autentifikatsiya maʼlumotlari taqdim etilmagan."
 
 #, fuzzy
 #~| msgid "General"
 #~ msgid "General "
 #~ msgstr "Umumiy"
 
-#~ msgid "Job"
-#~ msgstr "Kasb"
+msgid "Job"
+msgstr "Kasb"
 
 #~ msgid "English"
 #~ msgstr "Ingliz tili"
