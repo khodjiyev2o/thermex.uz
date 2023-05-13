@@ -20,16 +20,17 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = (
         'id',
         'name'
-        'brand',
+        'brand__name',
         'point'
     )
 
 
 @admin.register(SoldProduct)
 class SoldProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'product', 'created_at')
+    list_display = ('id', 'user', 'product', 'barcode', 'created_at')
     search_fields = (
-        'user',
-        'product',
+        'user__phone',
+        'product__name',
+        'barcode',
         'created_at',
     )

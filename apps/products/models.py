@@ -46,11 +46,12 @@ class SoldProduct(BaseModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name=_("Product"))
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('User'), related_name='sold_products')
     photo = models.ImageField(upload_to='sold_products/%Y/%m')
-    barcode = models.CharField(max_length=15, verbose_name=_("Bar Code"), unique=True)
+    barcode = models.CharField(max_length=15, verbose_name=_("Bar Code"))
 
     class Meta:
         verbose_name = _("SoldProduct")
         verbose_name_plural = _("SoldProducts")
+        unique_together = ('barcode', 'product')
 
     def __str__(self):
         return f"Name: {self.product} User: {self.user}"
