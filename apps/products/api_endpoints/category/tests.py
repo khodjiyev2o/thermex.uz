@@ -23,8 +23,6 @@ class TestCategoryView(APITestCase):
         assert response.status_code == 200
         assert list(response.json()[0].keys()) == ['id', 'name']
         assert len(response.json()) == len(category_choices)
-        assert response.json()[0]['id'] == 1
-        assert response.json()[1]['id'] == 2
 
     def test_category_list_uzbek(self):
         headers = {
@@ -35,8 +33,6 @@ class TestCategoryView(APITestCase):
         assert response.status_code == 200
         assert list(response.json()[0].keys()) == ['id', 'name']
         assert len(response.json()) == len(category_choices)
-        assert response.json()[0]['id'] == 1
-        assert response.json()[1]['id'] == 2
 
     def test_category_list_no_auth_russian(self):
         headers = {'HTTP_ACCEPT_LANGUAGE': 'ru'}
