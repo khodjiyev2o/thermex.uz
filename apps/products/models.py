@@ -22,7 +22,7 @@ class Brand(BaseModel):
     class Meta:
         verbose_name = _("Brand")
         verbose_name_plural = _("Brand")
-        unique_together = ('name', 'category')
+        unique_together = ('category', 'name')
 
     def __str__(self):
         return f"{self.name}"

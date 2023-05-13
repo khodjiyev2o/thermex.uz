@@ -9,7 +9,7 @@ class UserRegionListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
-        fields = ('name', 'region')
+        fields = ('id', 'name', 'region')
 
 
 class GetProfileDetailSerializer(serializers.ModelSerializer):
