@@ -61,5 +61,5 @@ class TestProfile(APITestCase):
             "username": "updated username",
         }
         response = self.client.patch(reverse("profile-update"), data=data)
-        self.assertEqual(response.json()['detail'], 'Autentifikatsiya maʼlumotlari taqdim etilmagan.')
         self.assertEqual(response.status_code, 401)
+

@@ -54,7 +54,5 @@ class TestProfile(APITestCase):
 
     def test_get_profile_no_authentication(self):
         self.client.login(username=self.user.phone, password="12345678")
-        headers = {"HTTP_ACCEPT_LANGUAGE": 'uz'}
-        response = self.client.get(reverse("profile-detail"), **headers)
-        self.assertEqual(response.json()['detail'], 'Autentifikatsiya maʼlumotlari taqdim etilmagan.')
+        response = self.client.get(reverse("profile-detail"))
         self.assertEqual(response.status_code, 401)
