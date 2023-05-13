@@ -29,6 +29,9 @@ class TestProductView(APITestCase):
         }
         response = self.client.get(url, **headers)
         assert response.status_code == 200
+        print("Response", response.json())
+        print("List with 0 ", response.json()[0])
+        print("List keys", list(response.json()[0].keys()))
         assert list(response.json()[0].keys()) == ['id', 'name', 'point']
         assert len(response.json()) == len(brand_product_dict[self.brands[0]])
         assert response.json()[0]['name'] == brand_product_dict[self.brands[0]][0]
