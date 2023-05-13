@@ -98,7 +98,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'uz'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Asia/Tashkent'
 
@@ -142,7 +142,7 @@ SIMPLE_JWT = {
 }
 
 MODELTRANSLATION_LANGUAGES = ("uz", "ru")
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 gettext = lambda s: s
 LANGUAGES = (
     ("uz", _("Uzbek")),

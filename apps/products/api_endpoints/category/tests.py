@@ -38,10 +38,6 @@ class TestCategoryView(APITestCase):
         assert response.json()[0]['id'] == 1
         assert response.json()[1]['id'] == 2
 
-    def test_category_list_no_auth_uzbek(self):
-        response = self.client.get(self.url)
-        assert response.json()['detail'] == 'Autentifikatsiya maʼlumotlari taqdim etilmagan.'
-
     def test_category_list_no_auth_russian(self):
         headers = {'HTTP_ACCEPT_LANGUAGE': 'ru'}
         response = self.client.get(self.url, **headers)

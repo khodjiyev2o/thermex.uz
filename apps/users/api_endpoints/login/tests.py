@@ -23,7 +23,7 @@ class SendAuthVerificationCodeViewTestCase(APITestCase):
         data = {"phone": "+998945611911", "code": "1111"}
         req = APIRequestFactory().post("/", data=data, format="json")
         response = view(req)
-        self.assertEqual(response.data['code'][0], 'Notugri kod')
+        self.assertEqual(response.data['code'][0], 'Неверный код')
         self.assertEqual(response.status_code, 400)
 
     def test_send_verify_correct_verification_code(self):

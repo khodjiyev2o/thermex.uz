@@ -27,11 +27,6 @@ class TestBrandView(APITestCase):
         assert len(response.json()) == len(category_brand_dict[category_name])
         assert list(response.json()[0].keys()) == ['id', 'name']
 
-    def test_brand_list_no_auth_uzbek(self):
-        url = reverse('brand-list', kwargs={'pk': 1})
-        response = self.client.get(url)
-        assert response.json()['detail'] == 'Autentifikatsiya maʼlumotlari taqdim etilmagan.'
-
     def test_brand_list_no_auth_russian(self):
         url = reverse('brand-list', kwargs={'pk': 1})
         headers = {'HTTP_ACCEPT_LANGUAGE': 'ru'}

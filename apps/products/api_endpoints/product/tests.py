@@ -33,11 +33,6 @@ class TestProductView(APITestCase):
         assert len(response.json()) == len(brand_product_dict[self.brands[0]])
         assert response.json()[0]['name'] == brand_product_dict[self.brands[0]][0]
 
-    def test_product_list_no_auth_uzbek(self):
-        url = reverse('product-list', kwargs={'pk': 1})
-        response = self.client.get(url)
-        assert response.json()['detail'] == 'Autentifikatsiya maʼlumotlari taqdim etilmagan.'
-
     def test_product_list_no_auth_russian(self):
         url = reverse('product-list', kwargs={'pk': 1})
         headers = {'HTTP_ACCEPT_LANGUAGE': 'ru'}
