@@ -23,7 +23,7 @@ class TestProductView(APITestCase):
                     Product.objects.create(name=product, brand=brand_instance)
 
     def test_product_list(self):
-        url = reverse('product-list', kwargs={'pk': 1})
+        url = reverse('product-list', kwargs={'pk': 2})
         headers = {
             'HTTP_AUTHORIZATION': f"Bearer {self.user.tokens.get('access')}",
         }
