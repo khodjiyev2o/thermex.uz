@@ -30,7 +30,7 @@ class TestProductView(APITestCase):
         response = self.client.get(url, **headers)
         assert response.status_code == 200
         print("Brands", self.brands)
-        print("Response", response.json())
+        print("Response", response.data)
         print("List with 0 ", response.json()[0])
         print("List keys", list(response.json()[0].keys()))
         assert list(response.json()[0].keys()) == ['id', 'name', 'point']
