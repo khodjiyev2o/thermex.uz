@@ -74,7 +74,6 @@ class TestUserSoldProducts(APITestCase):
         assert response.json()['message'] == 'Successfull'
         assert response.json()['points'] == self.product_instance.point
 
-
     def test_user_points_no_token(self):
         url = reverse('sold-product-user-points')
         response = self.client.get(url)
