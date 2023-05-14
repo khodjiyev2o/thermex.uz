@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from apps.common.models import BaseModel
+from apps.common.models import BaseModel, City
 from apps.users.models import User
 
 
@@ -47,6 +47,7 @@ class SoldProduct(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('User'), related_name='sold_products')
     photo = models.ImageField(upload_to='sold_products/%Y/%m')
     barcode = models.CharField(max_length=15, verbose_name=_("Bar Code"))
+    city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name=_("City"))
 
     class Meta:
         verbose_name = _("SoldProduct")
