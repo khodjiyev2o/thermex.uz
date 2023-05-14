@@ -24,16 +24,30 @@ services:
       - .env
     volumes:
       - .:/usr/src/app
-    ports:
-      - "8001:8000"
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/media
+    expose:
+      - 8000
     depends_on:
       - db
     container_name: thermex
     networks:
       - practise
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/media
+    depends_on:
+      - web
+    networks:
+      - practise
 volumes:
   postgres_data:
-
+  static_volume:
+  media_volume:
 
 networks:
   practise:
