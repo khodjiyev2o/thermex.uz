@@ -8,6 +8,7 @@ application_urlpatterns = [
     path("brand/<int:pk>/", product.ProductListView.as_view(), name="product-list"),
     path("user/add/product/", sold_products.SoldProductCreatetView.as_view(), name="sold-product-create"),
     path("user/points/", sold_products.UserPointsView.as_view(), name="sold-product-user-points"),
+    path("user/history/", sold_products.UserSoldProductListView.as_view(), name="sold-product-user-list"),
 ]
 
 urlpatterns = application_urlpatterns

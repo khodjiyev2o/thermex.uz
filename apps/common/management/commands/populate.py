@@ -48,12 +48,12 @@ class Command(BaseCommand):
         for region in self.regions.keys():
             region_ru = self.translated_regions[region]
             try:
-                new_region = Region.objects.create(name=region, name_ru=region_ru)
+                new_region = Region.objects.create(name_uz=region, name_ru=region_ru)
                 for city in self.regions[region]:
                     try:
                         city_ru = self.translated_cities[region][city]
                         print("city_ru", city_ru)
-                        City.objects.create(name=city, region=new_region, name_ru=city_ru, region_ru=new_region)
+                        City.objects.create(name_uz=city, region_uz=new_region, name_ru=city_ru, region_ru=new_region)
                     except Exception as e:
                         City.objects.create(name=city, region=new_region, region_ru=new_region)
                     self.stdout.write(
