@@ -11,7 +11,7 @@ class PhoneVerifySerializer(serializers.Serializer):
     def validate_code(self, value):
         phone = self.initial_data.get('phone')
         obj = VerificationCode.objects.filter(phone=phone, code=value).order_by('-created_at').first()
-        if obj is None:
+        if obj is None or obj.is_expired is True:
             raise serializers.ValidationError(_('Invalid code'))
         if not obj.is_expired:
             return value

@@ -53,6 +53,7 @@ class Notification(BaseModel):
     class Meta:
         verbose_name = _('Notification')
         verbose_name_plural = _('Notifications')
+        ordering = ('-created_at',)
 
     def __str__(self):
         return f"{self.title}"
