@@ -1,5 +1,5 @@
 from modeltranslation.translator import translator, TranslationOptions
-from apps.common.models import Region, City, Occupation
+from apps.common.models import Region, City, Occupation, Notification
 
 
 class RegionTranslationOptions(TranslationOptions):
@@ -21,3 +21,10 @@ class OccupationTranslationOptions(TranslationOptions):
 
 
 translator.register(Occupation, OccupationTranslationOptions)
+
+
+class NotificationTranslationOptions(TranslationOptions):
+    fields = ('title', 'text')
+
+
+translator.register(Notification, NotificationTranslationOptions)

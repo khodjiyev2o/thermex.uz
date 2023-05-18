@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import City, Region
+from .models import City, Region, Notification
 from modeltranslation.admin import TranslationAdmin
 
 
@@ -13,4 +13,7 @@ class RegionAdmin(TranslationAdmin):
     list_display = ('id', 'name')
 
 
+@admin.register(Notification)
+class NotificationAdmin(TranslationAdmin):
+    list_display = ('id', 'title', 'created_at')
 

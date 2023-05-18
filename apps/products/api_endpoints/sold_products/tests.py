@@ -84,3 +84,37 @@ class TestUserSoldProducts(APITestCase):
         response = self.client.get(url)
         assert response.status_code == 401
         assert response.json()['detail'] == 'Учетные данные для аутентификации не были предоставлены.'
+
+
+class TestUserSoldProductsPoint(APITestCase):
+    image = Image.new("RGB", (100, 100))
+    tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg")
+    image.save(tmp_file)
+    tmp_file.seek(0)
+
+    def setUp(self) -> None:
+        self.url = reverse("sold-product-create")
+        self.user = User.objects.create_user(phone="+998123456789", first_name='Samandar')
+        region_instance = Region.objects.create(name='Namanagan')
+        city_instance = City.objects.create(region=region_instance, name='Davlatobod tumani')
+        category_instance = Category.objects.create(name='Test Category')
+        brand_instance = Brand.objects.create(name='Test Brand', category=category_instance)
+        self.product_instance = Product.objects.create(name='Test Product', brand=brand_instance)
+        self.sold_product = SoldProduct.objects.create(product=self.product_instance,
+                                   user=self.user, barcode='1234', city=city_instance)
+
+    def test_user_sold_products_list(self):
+        url = reverse("sold-product-user-list")
+        headers = {'HTTP_AUTHORIZATION': f"Bearer {self.user.tokens.get('access')}"}
+        response = self.client.get(url, **headers)
+        assert response.status_code == 200
+        assert list(response.json()[0].keys()) == ['id', 'product', 'photo', 'barcode', 'point', 'created_at', 'city']
+        assert response.json()[0]['product'] == self.product_instance.name
+        assert response.json()[0]['barcode'] == self.sold_product.barcode
+        assert response.json()[0]['point'] == f'{self.product_instance.point}'
+
+    def test_user_sold_products_no_token(self):
+        url = reverse('sold-product-user-list')
+        response = self.client.get(url)
+        assert response.status_code == 401
+        assert response.json()['detail'] == 'Учетные данные для аутентификации не были предоставлены.'

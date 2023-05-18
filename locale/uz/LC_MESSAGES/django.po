@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 01:16+0500\n"
+"POT-Creation-Date: 2023-05-18 17:20+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,6 +92,7 @@ msgstr "Yangilangan"
 
 #: apps/common/models.py:14 apps/common/models.py:25 apps/common/models.py:38
 #: apps/products/models.py:8 apps/products/models.py:32
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:23
 msgid "Name"
 msgstr "Ism"
 
@@ -103,7 +104,8 @@ msgstr "Viloyat"
 msgid "Regions"
 msgstr "Viloyatlar"
 
-#: apps/common/models.py:26 apps/common/models.py:29 apps/users/models.py:23
+#: apps/common/models.py:26 apps/common/models.py:29 apps/products/models.py:50
+#: apps/users/models.py:23
 msgid "City"
 msgstr "Shahar"
 
@@ -118,6 +120,22 @@ msgstr "Ishchi"
 #: apps/common/models.py:42
 msgid "Occupations"
 msgstr "Ishchilar"
+
+#: apps/common/models.py:49 apps/common/models.py:50
+msgid "Title"
+msgstr "Sarlavha"
+
+#: apps/common/models.py:54
+#, fuzzy
+#| msgid "Verification Code"
+msgid "Notification"
+msgstr "Tasdiq kodi"
+
+#: apps/common/models.py:55
+#, fuzzy
+#| msgid "Verification Codes"
+msgid "Notifications"
+msgstr "Tasdiq kodlar"
 
 #: apps/products/models.py:11 apps/products/models.py:19
 msgid "Category"
@@ -148,11 +166,17 @@ msgstr "Tovarlar"
 msgid "User"
 msgstr "Foydalanuvchi"
 
-#: apps/products/models.py:50
+#: apps/products/models.py:49
+#, fuzzy
+#| msgid "Code"
+msgid "Bar Code"
+msgstr "Kod"
+
+#: apps/products/models.py:53
 msgid "SoldProduct"
 msgstr "Sotilgan Tovar"
 
-#: apps/products/models.py:51
+#: apps/products/models.py:54
 msgid "SoldProducts"
 msgstr "Sotilgan Tovarlar"
 
@@ -238,13 +262,17 @@ msgstr "Tasdiq kodi"
 msgid "Verification Codes"
 msgstr "Tasdiq kodlar"
 
-#: config/settings/base.py:148 config/settings/base.py:152
+#: config/settings/base.py:149 config/settings/base.py:153
 msgid "Uzbek"
 msgstr "O'zbek"
 
-#: config/settings/base.py:149 config/settings/base.py:153
+#: config/settings/base.py:150 config/settings/base.py:154
 msgid "Russian"
 msgstr "Rus tili"
+
+#: config/settings/base.py:171
+msgid "Devices"
+msgstr "Qurilmalar"
 
 #: venv/lib/python3.9/site-packages/django/contrib/messages/apps.py:15
 msgid "Messages"
@@ -1453,6 +1481,144 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:71
+#, python-format
+msgid ""
+"A device failed to un/subscribe to topic. %(count)d device was marked as "
+"inactive."
+msgid_plural ""
+"Some devices failed to un/subscribe to topic. %(count)d devices were marked "
+"as inactive."
+msgstr[0] ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:79
+#, python-format
+msgid "A message failed to send. %(count)d device was marked as inactive."
+msgid_plural ""
+"Some messages failed to send. %(count)d devices were marked as inactive."
+msgstr[0] ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:105
+#, python-format
+msgid "%(response)s (Registration ID/Tokens: %(reg_id)s)"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:167
+#, fuzzy
+#| msgid "Syndication"
+msgid "Send test notification"
+msgstr "Sindikatsiya"
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:172
+msgid "Send test notification in bulk"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:217
+msgid "Subscribe to test topic"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:222
+msgid "Subscribe to test topic in bulk"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:227
+msgid "Unsubscribe to test topic"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:232
+msgid "Unsubscribe to test topic in bulk"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:247
+msgid "Send message test topic"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:252
+msgid "Enable selected devices"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/admin.py:257
+msgid "Disable selected devices"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/fields.py:50
+msgid "Enter a valid hexadecimal number"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:26
+#, fuzzy
+#| msgid "Is Active"
+msgid "Is active"
+msgstr "Faol"
+
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:28
+msgid "Inactive devices will not be sent notifications"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:35
+msgid "fcmdevice"
+msgstr "Qurilma"
+
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:38
+#, fuzzy
+#| msgid "Created at"
+msgid "Creation date"
+msgstr "Yaratilgan"
+
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:271
+msgid "Device ID"
+msgstr "Qurilmani IDsi"
+
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:275
+msgid "Unique device identifier"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:279
+msgid "Registration token"
+msgstr "Ro'yxatdan o'tish tokeni"
+
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:287
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:387
+msgid "FCM device"
+msgstr "Foydalanuvchi qurilmasi"
+
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:388
+msgid "FCM devices"
+msgstr "Foydalanuvchilar qurilmasi"
+
+#: venv/lib/python3.9/site-packages/fcm_django/settings.py:8
+msgid "FCM Django"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/httplib2/__init__.py:408
+#, python-format
+msgid "Content purported to be compressed with %s but failed to decompress."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/httplib2/__init__.py:572
+#, python-format
+msgid "Unsupported value for qop: %s."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/httplib2/__init__.py:576
+#: venv/lib/python3.9/site-packages/httplib2/__init__.py:654
+#, python-format
+msgid "Unsupported value for algorithm: %s."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/httplib2/__init__.py:649
+msgid "The challenge doesn't contain a server nonce, or this one is empty."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/httplib2/__init__.py:659
+#, python-format
+msgid "Unsupported value for pw-algorithm: %s."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/httplib2/__init__.py:1468
+msgid "Redirected but the response is missing a Location: header."
+msgstr ""
+
 #: venv/lib/python3.9/site-packages/modeltranslation/widgets.py:26
 msgid "None"
 msgstr ""
@@ -1465,8 +1631,8 @@ msgstr "Autentifikatsiya maʼlumotlari taqdim etilmagan."
 #~ msgid "General "
 #~ msgstr "Umumiy"
 
-msgid "Job"
-msgstr "Kasb"
+#~ msgid "Job"
+#~ msgstr "Kasb"
 
 #~ msgid "English"
 #~ msgstr "Ingliz tili"

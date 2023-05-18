@@ -43,3 +43,16 @@ class Occupation(BaseModel):
 
     def __str__(self):
         return f"{self.name}"
+
+
+class Notification(BaseModel):
+    title = models.CharField(max_length=255, verbose_name=_("Title"))
+    text = models.TextField(verbose_name=_("Title"))
+    image = models.ImageField(upload_to='notifications/%Y/%m/', null=True, blank=True)
+
+    class Meta:
+        verbose_name = _('Notification')
+        verbose_name_plural = _('Notifications')
+
+    def __str__(self):
+        return f"{self.title}"

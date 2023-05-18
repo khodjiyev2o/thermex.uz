@@ -168,7 +168,7 @@ FCM_DJANGO_SETTINGS = {
      # default: None (the default Firebase app)
     "DEFAULT_FIREBASE_APP": None,
      # default: _('FCM Django')
-    "APP_VERBOSE_NAME": "Thermex.uz BackEnd",
+    "APP_VERBOSE_NAME": _("Devices"),
      # true if you want to   have only one active device per registered user at a time
      # default: False
     "ONE_DEVICE_PER_USER": False,
