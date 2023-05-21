@@ -1,6 +1,7 @@
 from .base import *
 DEBUG = True
 ALLOWED_HOSTS = ['18.228.10.255', '127.0.0.1', 'api.san-neo.uz']
+CORS_ORIGIN_ALLOW_ALL = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
