@@ -14,7 +14,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     middle_name = models.CharField(_("Middle Name"), max_length=255, null=True)
     username = models.CharField(_("Username"), max_length=255, unique=True, null=True)
     phone = PhoneNumberField(_("Phone number"), max_length=32, unique=True)
-    email = models.EmailField(_("Email"), max_length=255, unique=True, null=True, blank=True)
+    email = models.EmailField(_("Email"), max_length=255, null=True, blank=True)
     photo = models.ImageField(_("Photo"), upload_to='users/%Y/%m', blank=True, null=True)
     job = models.ForeignKey(Occupation, verbose_name=_("Occupation"), null=True, on_delete=models.CASCADE)
     date_of_birth = models.DateField(_("Data of Birth"), blank=True, null=True)
@@ -30,8 +30,6 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     REQUIRED_FIELDS = []  # type: ignore
 
     def __str__(self):
-        if self.email:
-            return self.email
         if self.phone:
             return f"{self.phone}"
         if self.username:
