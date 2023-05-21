@@ -28,9 +28,11 @@ class OccupationListView(ListAPIView):
 
 
 class NotificationListView(ListAPIView):
-    queryset = Notification.objects.all()
     serializer_class = NotificationListSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Notification.objects.filter(created_at__gt=self.request.user.created_at)
 
 
 class DeviceRegisterView(CreateAPIView):
