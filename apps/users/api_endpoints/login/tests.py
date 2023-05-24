@@ -7,12 +7,12 @@ from apps.users.models import VerificationCode, User
 class SendAuthVerificationCodeViewTestCase(APITestCase):
 
     def setUp(self) -> None:
-        self.user = User.objects.create(first_name='Samandar', phone='+998913582680')
+        self.user = User.objects.create(first_name='Samandar', phone='+998913665113')
 
     def test_send_verify_wrong_verification_code(self):
         """ Sending the code to number """
         view = PhoneAuthenticationView.as_view()
-        data = {"phone": "+998945611911"}
+        data = {"phone": "+998913665113"}
         req = APIRequestFactory().post("/", data=data, format="json")
         response = view(req)
         self.assertEqual(response.data['success'], True)
@@ -20,7 +20,7 @@ class SendAuthVerificationCodeViewTestCase(APITestCase):
         self.assertEqual(response.status_code, 201)
         """ Verifying the code """
         view = PhoneVerificationView.as_view()
-        data = {"phone": "+998945611911", "code": "1111"}
+        data = {"phone": "+998913665113", "code": "1111"}
         req = APIRequestFactory().post("/", data=data, format="json")
         response = view(req)
         self.assertEqual(response.data['code'][0], 'Неверный код')
@@ -29,7 +29,7 @@ class SendAuthVerificationCodeViewTestCase(APITestCase):
     def test_send_verify_correct_verification_code(self):
         """ Sending the code to number """
         view = PhoneAuthenticationView.as_view()
-        data = {"phone": "+998945611911"}
+        data = {"phone": "+998913582680"}
         req = APIRequestFactory().post("/", data=data, format="json")
         response = view(req)
         self.assertEqual(response.data['success'], True)
@@ -38,7 +38,7 @@ class SendAuthVerificationCodeViewTestCase(APITestCase):
         """ Verifying the code """
         obj = VerificationCode.objects.get(phone=data['phone'])
         view = PhoneVerificationView.as_view()
-        data = {"phone": "+998945611911", "code": f"{obj.code}"}
+        data = {"phone": "+998913582680", "code": f"{obj.code}"}
         req = APIRequestFactory().post("/", data=data, format="json")
         response = view(req)
         self.assertEqual(response.data['success'], True)

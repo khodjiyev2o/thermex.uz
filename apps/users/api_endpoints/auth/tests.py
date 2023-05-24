@@ -6,7 +6,7 @@ from apps.users.api_endpoints.auth import PhoneAuthenticationView
 class SendAuthVerificationCodeViewTestCase(APITestCase):
     def test_send_auth_verification_code(self):
         view = PhoneAuthenticationView.as_view()
-        data = {"phone": "+998945611911"}
+        data = {"phone": "+998913665113"}
         req = APIRequestFactory().post("/", data=data, format="json")
         response = view(req)
         self.assertEqual(response.data['success'], True)
