@@ -17,18 +17,18 @@ class Region(BaseModel):
         return f"{self.name}"
 
     class Meta:
-        verbose_name = _('Region')
-        verbose_name_plural = _('Regions')
+        verbose_name = _("Region")
+        verbose_name_plural = _("Regions")
 
 
 class City(BaseModel):
     name = models.CharField(max_length=255, verbose_name=_("Name"))
-    region = models.ForeignKey(Region, on_delete=models.CASCADE, verbose_name=_("City"), related_name='regions')
+    region = models.ForeignKey(Region, on_delete=models.CASCADE, verbose_name=_("City"), related_name="regions")
 
     class Meta:
-        verbose_name = _('City')
-        verbose_name_plural = _('Cities')
-        unique_together = ('region', 'name')
+        verbose_name = _("City")
+        verbose_name_plural = _("Cities")
+        unique_together = ("region", "name")
 
     def __str__(self):
         return f"{self.name}"
@@ -38,8 +38,8 @@ class Occupation(BaseModel):
     name = models.CharField(max_length=255, verbose_name=_("Name"), unique=True)
 
     class Meta:
-        verbose_name = _('Occupation')
-        verbose_name_plural = _('Occupations')
+        verbose_name = _("Occupation")
+        verbose_name_plural = _("Occupations")
 
     def __str__(self):
         return f"{self.name}"
@@ -48,12 +48,12 @@ class Occupation(BaseModel):
 class Notification(BaseModel):
     title = models.CharField(max_length=255, verbose_name=_("Title"))
     text = models.TextField(verbose_name=_("Title"))
-    image = models.ImageField(upload_to='notifications/%Y/%m/', null=True, blank=True)
+    image = models.ImageField(upload_to="notifications/%Y/%m/", null=True, blank=True)
 
     class Meta:
-        verbose_name = _('Notification')
-        verbose_name_plural = _('Notifications')
-        ordering = ('-created_at',)
+        verbose_name = _("Notification")
+        verbose_name_plural = _("Notifications")
+        ordering = ("-created_at",)
 
     def __str__(self):
         return f"{self.title}"

@@ -1,9 +1,10 @@
-from modeltranslation.translator import translator, TranslationOptions
+from modeltranslation.translator import TranslationOptions, translator
+
 from apps.products.models import Category
 
 
 class CategoryTranslationOptions(TranslationOptions):
-    fields = ('name', )
+    fields = ("name",)
 
 
 translator.register(Category, CategoryTranslationOptions)

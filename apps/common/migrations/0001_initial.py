@@ -8,57 +8,82 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Occupation',
+            name="Occupation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated at')),
-                ('name', models.CharField(max_length=255, verbose_name='Name')),
-                ('name_uz', models.CharField(max_length=255, null=True, verbose_name='Name')),
-                ('name_ru', models.CharField(max_length=255, null=True, verbose_name='Name')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Created at")),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Updated at")),
+                ("name", models.CharField(max_length=255, verbose_name="Name")),
+                ("name_uz", models.CharField(max_length=255, null=True, verbose_name="Name")),
+                ("name_ru", models.CharField(max_length=255, null=True, verbose_name="Name")),
             ],
             options={
-                'verbose_name': 'Occupation',
-                'verbose_name_plural': 'Occupations',
+                "verbose_name": "Occupation",
+                "verbose_name_plural": "Occupations",
             },
         ),
         migrations.CreateModel(
-            name='Region',
+            name="Region",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated at')),
-                ('name', models.CharField(max_length=255, unique=True, verbose_name='Name')),
-                ('name_uz', models.CharField(max_length=255, null=True, unique=True, verbose_name='Name')),
-                ('name_ru', models.CharField(max_length=255, null=True, unique=True, verbose_name='Name')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Created at")),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Updated at")),
+                ("name", models.CharField(max_length=255, unique=True, verbose_name="Name")),
+                ("name_uz", models.CharField(max_length=255, null=True, unique=True, verbose_name="Name")),
+                ("name_ru", models.CharField(max_length=255, null=True, unique=True, verbose_name="Name")),
             ],
             options={
-                'verbose_name': 'Region',
-                'verbose_name_plural': 'Regions',
+                "verbose_name": "Region",
+                "verbose_name_plural": "Regions",
             },
         ),
         migrations.CreateModel(
-            name='City',
+            name="City",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated at')),
-                ('name', models.CharField(max_length=255, verbose_name='Name')),
-                ('name_uz', models.CharField(max_length=255, null=True, verbose_name='Name')),
-                ('name_ru', models.CharField(max_length=255, null=True, verbose_name='Name')),
-                ('region', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='regions', to='common.region', verbose_name='City')),
-                ('region_ru', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='regions', to='common.region', verbose_name='City')),
-                ('region_uz', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='regions', to='common.region', verbose_name='City')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Created at")),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Updated at")),
+                ("name", models.CharField(max_length=255, verbose_name="Name")),
+                ("name_uz", models.CharField(max_length=255, null=True, verbose_name="Name")),
+                ("name_ru", models.CharField(max_length=255, null=True, verbose_name="Name")),
+                (
+                    "region",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="regions",
+                        to="common.region",
+                        verbose_name="City",
+                    ),
+                ),
+                (
+                    "region_ru",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="regions",
+                        to="common.region",
+                        verbose_name="City",
+                    ),
+                ),
+                (
+                    "region_uz",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="regions",
+                        to="common.region",
+                        verbose_name="City",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'City',
-                'verbose_name_plural': 'Cities',
-                'unique_together': {('region', 'name')},
+                "verbose_name": "City",
+                "verbose_name_plural": "Cities",
+                "unique_together": {("region", "name")},
             },
         ),
     ]

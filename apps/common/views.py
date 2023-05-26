@@ -1,20 +1,23 @@
-
-from rest_framework.generics import ListAPIView, CreateAPIView
-from rest_framework.views import APIView
-from apps.common.models import Region, Occupation, Notification
-from apps.common.choices import REGION_CHOICES
-from apps.common.serializers import \
-    RegionListSerializer, OccupationListSerializer, NotificationListSerializer, DeviceRegisterSerializer
 from django.http import JsonResponse
-from rest_framework.permissions import IsAuthenticated
 from fcm_django.models import FCMDevice
+from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+
+from apps.common.choices import REGION_CHOICES
+from apps.common.models import Notification, Occupation, Region
+from apps.common.serializers import (
+    DeviceRegisterSerializer,
+    NotificationListSerializer,
+    OccupationListSerializer,
+    RegionListSerializer,
+)
 
 
 class RegionNamesListView(APIView):
-
     def get(self, request):
         cities = list(REGION_CHOICES.keys())
-        return JsonResponse({'cities': cities})
+        return JsonResponse({"cities": cities})
 
 
 class RegionListView(ListAPIView):

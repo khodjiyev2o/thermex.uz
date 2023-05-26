@@ -9,12 +9,12 @@ class SendAuthVerificationCodeViewTestCase(APITestCase):
         data = {"phone": "+998913665113"}
         req = APIRequestFactory().post("/", data=data, format="json")
         response = view(req)
-        self.assertEqual(response.data['success'], True)
-        self.assertEqual(response.data['message'], f"Activation code successfully sent to {data['phone']}!")
+        self.assertEqual(response.data["success"], True)
+        self.assertEqual(response.data["message"], f"Activation code successfully sent to {data['phone']}!")
         self.assertEqual(response.status_code, 201)
         """Sending authentication again during 5 minutes"""
         req2 = APIRequestFactory().post("/", data=data, format="json")
         response2 = view(req2)
-        self.assertEqual(response2.data['success'], False)
-        self.assertEqual(response2.data['message'], "Activation code already sent !")
+        self.assertEqual(response2.data["success"], False)
+        self.assertEqual(response2.data["message"], "Activation code already sent !")
         self.assertEqual(response2.status_code, 200)

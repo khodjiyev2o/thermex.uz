@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0003_alter_soldproduct_barcode'),
+        ("products", "0003_alter_soldproduct_barcode"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='soldproduct',
-            name='barcode',
-            field=models.CharField(max_length=15, verbose_name='Bar Code'),
+            model_name="soldproduct",
+            name="barcode",
+            field=models.CharField(max_length=15, verbose_name="Bar Code"),
         ),
         migrations.AlterUniqueTogether(
-            name='soldproduct',
-            unique_together={('barcode', 'product')},
+            name="soldproduct",
+            unique_together={("barcode", "product")},
         ),
     ]

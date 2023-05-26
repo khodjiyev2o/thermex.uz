@@ -2,9 +2,7 @@ from rest_framework import generics
 from rest_framework.parsers import JSONParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 
-from apps.users.api_endpoints.profile.update.serializers import (
-    UpdateProfileSerializer,
-)
+from apps.users.api_endpoints.profile.update.serializers import UpdateProfileSerializer
 
 
 class UpdateProfileView(generics.UpdateAPIView):

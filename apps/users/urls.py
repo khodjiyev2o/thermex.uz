@@ -1,8 +1,8 @@
+from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from django.urls import path
-
 from .api_endpoints import auth, login, profile
+
 
 application_urlpatterns = [
     path("phone-verify/", login.PhoneVerificationView.as_view(), name="phone-verify"),

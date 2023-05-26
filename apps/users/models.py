@@ -1,11 +1,13 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
-from apps.common.models import BaseModel, City, Occupation
-from .managers import UserManager
-from rest_framework_simplejwt.tokens import RefreshToken
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
-from django.utils import timezone
+from rest_framework_simplejwt.tokens import RefreshToken
+
+from apps.common.models import BaseModel, City, Occupation
+
+from .managers import UserManager
 
 
 class User(AbstractBaseUser, PermissionsMixin, BaseModel):
@@ -15,7 +17,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     username = models.CharField(_("Username"), max_length=255, unique=True, null=True)
     phone = PhoneNumberField(_("Phone number"), max_length=32, unique=True)
     email = models.EmailField(_("Email"), max_length=255, null=True, blank=True)
-    photo = models.ImageField(_("Photo"), upload_to='users/%Y/%m', blank=True, null=True)
+    photo = models.ImageField(_("Photo"), upload_to="users/%Y/%m", blank=True, null=True)
     job = models.ForeignKey(Occupation, verbose_name=_("Occupation"), null=True, on_delete=models.CASCADE)
     date_of_birth = models.DateField(_("Data of Birth"), blank=True, null=True)
     has_team = models.BooleanField(_("Has Team"), default=False)
@@ -26,7 +28,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     is_superuser = models.BooleanField(_("Is SuperUser"), default=False)
 
     objects = UserManager()
-    USERNAME_FIELD = 'phone'
+    USERNAME_FIELD = "phone"
     REQUIRED_FIELDS = []  # type: ignore
 
     def __str__(self):
@@ -43,22 +45,26 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     @property
     def tokens(self):
         token = RefreshToken.for_user(self)
-        return {'access': str(token.access_token), 'refresh': str(token)}
+        return {"access": str(token.access_token), "refresh": str(token)}
 
     class Meta:
-        verbose_name = _('User')
-        verbose_name_plural = _('Users')
+        verbose_name = _("User")
+        verbose_name_plural = _("Users")
 
 
 class VerificationCode(BaseModel):
     phone = PhoneNumberField(_("Phone number"), max_length=32, null=True)
-    code = models.CharField(_("Code"), max_length=10, blank=True,)
+    code = models.CharField(
+        _("Code"),
+        max_length=10,
+        blank=True,
+    )
     expires_at = models.DateTimeField(verbose_name=_("Expires In"), null=True, blank=True)
 
     class Meta:
         verbose_name = _("Verification Code")
         verbose_name_plural = _("Verification Codes")
-        ordering = ('-created_at',)
+        ordering = ("-created_at",)
 
         def __str__(self):
             return f"User ID: {self.user.id} | User email: {self.code}"

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from apps.common.models import BaseModel, City
 from apps.users.models import User
 
@@ -22,7 +23,7 @@ class Brand(BaseModel):
     class Meta:
         verbose_name = _("Brand")
         verbose_name_plural = _("Brand")
-        unique_together = ('category', 'name')
+        unique_together = ("category", "name")
 
     def __str__(self):
         return f"{self.name}"
@@ -36,7 +37,7 @@ class Product(BaseModel):
     class Meta:
         verbose_name = _("Product")
         verbose_name_plural = _("Products")
-        unique_together = ('name', 'brand')
+        unique_together = ("name", "brand")
 
     def __str__(self):
         return f"Name: {self.name} Category: {self.brand.category}"
@@ -44,15 +45,15 @@ class Product(BaseModel):
 
 class SoldProduct(BaseModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name=_("Product"))
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('User'), related_name='sold_products')
-    photo = models.ImageField(upload_to='sold_products/%Y/%m')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("User"), related_name="sold_products")
+    photo = models.ImageField(upload_to="sold_products/%Y/%m")
     barcode = models.CharField(max_length=15, verbose_name=_("Bar Code"))
     city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name=_("City"))
 
     class Meta:
         verbose_name = _("SoldProduct")
         verbose_name_plural = _("SoldProducts")
-        unique_together = ('barcode', 'product')
+        unique_together = ("barcode", "product")
 
     def __str__(self):
         return f"Name: {self.product} User: {self.user}"

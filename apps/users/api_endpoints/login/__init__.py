@@ -1,1 +1,1 @@
-from .views import PhoneVerificationView
+from .views import *  # noqa

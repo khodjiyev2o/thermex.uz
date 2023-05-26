@@ -1,6 +1,5 @@
-from rest_framework import serializers
-
 from django.contrib.auth.validators import UnicodeUsernameValidator
+from rest_framework import serializers
 
 
 class CheckUsernameSerializer(serializers.Serializer):

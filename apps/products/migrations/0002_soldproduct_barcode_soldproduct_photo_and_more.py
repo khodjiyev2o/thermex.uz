@@ -6,28 +6,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0001_initial'),
+        ("products", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='soldproduct',
-            name='barcode',
-            field=models.CharField(default=1, max_length=15, verbose_name='Bar Code'),
+            model_name="soldproduct",
+            name="barcode",
+            field=models.CharField(default=1, max_length=15, verbose_name="Bar Code"),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='soldproduct',
-            name='photo',
-            field=models.ImageField(default=1, upload_to='sold_products/%Y/%m'),
+            model_name="soldproduct",
+            name="photo",
+            field=models.ImageField(default=1, upload_to="sold_products/%Y/%m"),
             preserve_default=False,
         ),
         migrations.AlterUniqueTogether(
-            name='brand',
-            unique_together={('name', 'category')},
+            name="brand",
+            unique_together={("name", "category")},
         ),
         migrations.AlterUniqueTogether(
-            name='product',
-            unique_together={('name', 'brand')},
+            name="product",
+            unique_together={("name", "brand")},
         ),
     ]

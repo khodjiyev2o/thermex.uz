@@ -13,7 +13,6 @@ psycopg2-binary==2.9.5
 drf-yasg==1.21.5
 django-modeltranslation==0.18.9
 django-parler==2.3
-googletrans==4.0.0rc1
 Pillow==9.5.0
 fcm-django==1.0.14
 eskiz-sms==0.2.3

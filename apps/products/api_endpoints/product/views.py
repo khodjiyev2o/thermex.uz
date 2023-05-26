@@ -1,7 +1,8 @@
 from rest_framework.generics import ListAPIView
-from apps.products.models import Product
-from apps.products.api_endpoints.product.serializers import ProductListSerializer
 from rest_framework.permissions import IsAuthenticated
+
+from apps.products.api_endpoints.product.serializers import ProductListSerializer
+from apps.products.models import Product
 
 
 class ProductListView(ListAPIView):
@@ -10,4 +11,4 @@ class ProductListView(ListAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Product.objects.filter(brand=self.kwargs.get('pk'))
+        return Product.objects.filter(brand=self.kwargs.get("pk"))

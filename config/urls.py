@@ -1,9 +1,11 @@
-from django.contrib import admin
-from django.urls import path, include
-from .swagger import swaggerurlpatterns
 from django.conf import settings
-from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path
+
+from .swagger import swaggerurlpatterns
+
 
 urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),

@@ -1,6 +1,7 @@
 from django.urls import path
 
-from .api_endpoints import category, brand, product, sold_products
+from .api_endpoints import brand, category, product, sold_products
+
 
 application_urlpatterns = [
     path("category/", category.CategoryListView.as_view(), name="category-list"),
