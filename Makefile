@@ -1,6 +1,5 @@
 #!/usr/bin/make
 
-include .env
 
 
 hello:
