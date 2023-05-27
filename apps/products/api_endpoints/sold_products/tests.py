@@ -57,8 +57,8 @@ class TestUserSoldProducts(APITestCase):
             "city": 1,
         }
         response = self.client.post(self.url, data=data2, format="multipart", **headers)
+        print(response.json())
         assert response.json()["non_field_errors"] == ["The fields barcode, product must make a unique set."]
-
         image = Image.new("RGB", (100, 100))
         tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg")
         image.save(tmp_file)
