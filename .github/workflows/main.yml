@@ -21,6 +21,7 @@ jobs:
         image: postgres
         # Provide the password for postgres
         env:
+          DATABASE_HOST: db
           POSTGRES_PASSWORD: password
           POSTGRES_USER: sammy
           POSTGRES_DB: postgres
