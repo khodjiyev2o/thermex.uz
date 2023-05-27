@@ -16,4 +16,4 @@ django-parler==2.3
 Pillow==9.5.0
 fcm-django==1.0.14
 eskiz-sms==0.2.3
-pre-commit
+pre-commit==3.3.2
