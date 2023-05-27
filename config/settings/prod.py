@@ -13,8 +13,4 @@ DATABASES = {
         "HOST": env.str("DB_HOST"),
         "PORT": env.str("DB_PORT"),
     },
-    "test": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    },
 }

@@ -30,4 +30,4 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" >> .env
     - name: Run Tests
       run: |
-        make test
+        python manage.py test
