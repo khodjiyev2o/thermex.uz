@@ -44,4 +44,5 @@ jobs:
           docker-compose up  -d
     - name: Run Tests
       run: |
+        docker exec thermex python manage.py compilemessages
         docker exec thermex python manage.py test
