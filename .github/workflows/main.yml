@@ -5,6 +5,22 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  services:
+    # Label used to access the service container
+    db:
+      # Docker Hub image
+      image: postgres
+      # Provide the password for postgres
+      env:
+        POSTGRES_PASSWORD: password
+        POSTGRES_USER: sammy
+        POSTGRES_DB: postgres
+      # Set health checks to wait until postgres has started
+      options: >-
+        --health-cmd pg_isready
+        --health-interval 10s
+        --health-timeout 5s
+        --health-retries 5
 
 jobs:
   build:
@@ -14,7 +30,6 @@ jobs:
       max-parallel: 4
       matrix:
         python-version: [3.9]
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
