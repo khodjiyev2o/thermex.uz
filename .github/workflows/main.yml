@@ -15,22 +15,13 @@ jobs:
       matrix:
         python-version: [3.9]
     services:
-      # Label used to access the service container
-      db:
-        # Docker Hub image
-        image: postgres
-        # Provide the password for postgres
-        env:
-          DATABASE_HOST: db
-          POSTGRES_PASSWORD: password
-          POSTGRES_USER: sammy
-          POSTGRES_DB: postgres
-        # Set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+      - postgres:latest
+    variables:
+        DATABASE_HOST: db
+        POSTGRES_DB: postgres
+        POSTGRES_USER: sammy
+        POSTGRES_PASSWORD: password
+        POSTGRES_HOST_AUTH_METHOD: trust
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
