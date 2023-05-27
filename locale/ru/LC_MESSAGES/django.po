@@ -480,8 +480,7 @@ msgstr "%(model_name)s с этим %(field_label)s уже exists."
 #. 'month'. Eg: "Title must be unique for pub_date year"
 #: venv/lib/python3.9/site-packages/django/db/models/fields/__init__.py:135
 #, python-format
-msgid ""
-"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgid "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
 msgstr "%(field_label)s уже существуют "
 
 #: venv/lib/python3.9/site-packages/django/db/models/fields/__init__.py:173
@@ -1645,5 +1644,3 @@ msgstr ""
 
 msgid "Authentication credentials were not provided."
 msgstr "Учетные данные для аутентификации не были предоставлены."
-
-
