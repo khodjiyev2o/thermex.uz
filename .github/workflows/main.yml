@@ -14,14 +14,6 @@ jobs:
       max-parallel: 4
       matrix:
         python-version: [3.9]
-    services:
-      - postgres:latest
-    variables:
-        DATABASE_HOST: db
-        POSTGRES_DB: postgres
-        POSTGRES_USER: sammy
-        POSTGRES_PASSWORD: password
-        POSTGRES_HOST_AUTH_METHOD: trust
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
