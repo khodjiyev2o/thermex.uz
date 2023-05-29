@@ -55,19 +55,19 @@ jobs:
             host: 18.228.10.255
             username: ec2-user
             key: ${{ secrets.SSH_PRIVATE_KEY }}
-            source: .
+            source: hello.py
             target: "~/thermex.uz"
 
-        - name: SSH into server and deploy
-          uses: appleboy/ssh-action@master
-          with:
-            host: 18.228.10.255
-            username: ec2-user
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
-            script: |
-              cd ~/thermex.uz
-              docker container prune -f
-              docker image prune -f
-              docker-compose up -d --build
+#        - name: SSH into server and deploy
+#          uses: appleboy/ssh-action@master
+#          with:
+#            host: 18.228.10.255
+#            username: ec2-user
+#            key: ${{ secrets.SSH_PRIVATE_KEY }}
+#            script: |
+#              cd ~/thermex.uz
+#              docker container prune -f
+#              docker image prune -f
+#              docker-compose up -d --build
         - name: Job Status
           run: echo "🍏 Deployment status is ${{ job.status }}."
