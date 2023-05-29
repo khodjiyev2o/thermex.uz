@@ -38,13 +38,15 @@ class TestUserSoldProducts(APITestCase):
 
         data = {
             "product": self.product_instance.id,
-            "barcode": 1112312,
+            "barcode": "1112312",
             "photo": self.tmp_file,
-            "city": 1,
+            "city": self.city_instance.id,
         }
         response = self.client.post(self.url, data=data, format="multipart", **headers)
-        print(response.json())
-        print(response.status_code)
+        assert response.status_code == 201
+        assert response.json()["product"] == data["product"]
+        assert response.json()["barcode"] == data["barcode"]
+        assert response.json()["city"] == data["city"]
 
         image = Image.new("RGB", (100, 100))
         tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg")
