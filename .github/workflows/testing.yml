@@ -46,25 +46,28 @@ jobs:
     needs: testing
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: Copy files to EC2
-        uses: appleboy/scp-action@master
-        with:
-          host: 18.228.10.255
-          username: ec2-user
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: .
-          target: ~/thermex.uz
-      - name: SSH into EC2
-        uses: appleboy/ssh-action@master
-        with:
-          #host: ${{ secrets.EC2_INSTANCE_IP }}
-          host: 18.228.10.255
-          username: ec2-user
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            docker-compose down 
-            docker container prune --force
-            docker image prune --force
-            docker-compose up -d --build
-      - name: Job Status
-        run: echo "🍏 Deployment status is ${{ job.status }}."
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Copy files to server
+          uses: appleboy/scp-action@v2
+          with:
+            host: 18.228.10.255
+            username: ec2-user
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            source: .
+            target: "~/thermex.uz"
+
+        - name: SSH into server and deploy
+          uses: appleboy/ssh-action@v1
+          with:
+            host: 18.228.10.255
+            username: ec2-user
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            script: |
+              cd ~/thermex.uz
+              docker container prune -f
+              docker image prune -f
+              docker-compose up -d --build
+        - name: Job Status
+          run: echo "🍏 Deployment status is ${{ job.status }}."
