@@ -49,14 +49,8 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v2
 
-        - name: Copy files to server
-          uses: appleboy/scp-action@master
-          with:
-            host: 18.228.10.255
-            username: ec2-user
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
-            source: hello.py
-            target: "~/thermex.uz"
+        - name: Copy files to EC2
+          run: rsync -az --exclude '.env' --exclude 'media/'  . ec2-user@18.228.10.255:~/thermex.uz/
 
 #        - name: SSH into server and deploy
 #          uses: appleboy/ssh-action@master
