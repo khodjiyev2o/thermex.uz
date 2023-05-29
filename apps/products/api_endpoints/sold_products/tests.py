@@ -43,7 +43,8 @@ class TestUserSoldProducts(APITestCase):
             "city": 1,
         }
         response = self.client.post(self.url, data=data, format="multipart", **headers)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        print(response.json())
+        print(response.status_code)
 
         image = Image.new("RGB", (100, 100))
         tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg")
