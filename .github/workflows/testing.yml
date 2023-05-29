@@ -62,6 +62,7 @@ jobs:
             username: ec2-user
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             script: |
+              cd ~/thermex.uz
               docker-compose down 
               docker container prune -f
               docker image prune -f
