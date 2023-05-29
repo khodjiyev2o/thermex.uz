@@ -68,7 +68,7 @@ class TestUserSoldProducts(APITestCase):
             "product": self.product_instance.id,
             "barcode": self.new_barcode,
             "photo": tmp_file,
-            "city": 1,
+            "city": self.city_instance.id,
         }
         response = self.client.post(self.url, data=data3, format="multipart", **headers)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
