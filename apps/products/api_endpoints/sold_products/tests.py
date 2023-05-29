@@ -25,19 +25,19 @@ class TestUserSoldProducts(APITestCase):
         self.used_barcode = 1112
         self.new_barcode = 2256
         region_instance = Region.objects.create(name="Namanagan")
-        city_instance = City.objects.create(region=region_instance, name="Davlatobod tumani")
+        self.city_instance = City.objects.create(region=region_instance, name="Davlatobod tumani")
         category_instance = Category.objects.create(name="Test Category")
         brand_instance = Brand.objects.create(name="Test Brand", category=category_instance)
         self.product_instance = Product.objects.create(name="Test Product", brand=brand_instance)
         SoldProduct.objects.create(
-            product=self.product_instance, user=self.user, barcode=self.used_barcode, city=city_instance
+            product=self.product_instance, user=self.user, barcode=self.used_barcode, city=self.city_instance
         )
 
     def test_create_sold_product_with_valid_data(self):
         headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
 
         data = {
-            "product": 1,
+            "product": self.product_instance.id,
             "barcode": 1112312,
             "photo": self.tmp_file,
             "city": 1,
@@ -55,7 +55,7 @@ class TestUserSoldProducts(APITestCase):
             "product": self.product_instance.id,
             "barcode": self.used_barcode,
             "photo": tmp_file,
-            "city": 1,
+            "city": self.city_instance.id,
         }
         response = self.client.post(self.url, data=data2, format="multipart", **headers)
         assert list(response.json().keys()) == ["non_field_errors"]
