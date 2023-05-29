@@ -48,20 +48,16 @@ jobs:
     steps:
         - name: Checkout code
           uses: actions/checkout@v2
-        - name: Get changed files
-          id: changed-files
-          uses: tj-actions/changed-files@v35
-          with:
-            since_last_remote_commit: true
-            separator: ","
+
         - name: copy file to server
-          uses: appleboy/scp-action@v0.1.4
+          uses: appleboy/scp-action@master
           with:
             host: 18.228.10.255
             username: ec2-user
             key: ${{ secrets.SSH_PRIVATE_KEY }}
-            source: ${{ steps.changed-files.outputs.all_changed_files }}
+            source: .
             target: thermex.uz
+
 #        - name: SSH into server and deploy
 #          uses: appleboy/ssh-action@master
 #          with:
