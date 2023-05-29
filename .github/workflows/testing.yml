@@ -60,8 +60,8 @@ jobs:
             cd ~/thermex.uz
             git pull origin main
             docker-compose down 
-            docker-compose up -d --build
             docker container prune --noinput
             docker image prune --noinput
+            docker-compose up -d --build
       - name: Job Status
         run: echo "🍏 Deployment status is ${{ job.status }}."
