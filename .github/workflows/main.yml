@@ -13,8 +13,9 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip'
+      - name: Actor Name
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Install Dependencies
       - run: pip install -r requirements.txt
+      - name: Job Status
       - run: echo "🍏 This job's status is ${{ job.status }}."
