@@ -1,52 +1,44 @@
-#name: Django CI
-#
-#on:
-#  push:
-#    branches: [ main ]
-#  pull_request:
-#    branches: [ main ]
-#
-#jobs:
-#  tests:
-#
-#    runs-on: ubuntu-latest
-#    strategy:
-#      max-parallel: 4
-#      matrix:
-#        python-version: [3.9]
-#    steps:
-#    - uses: actions/checkout@v2
-#    - name: Set up Python ${{ matrix.python-version }}
-#      uses: actions/setup-python@v2
-#      with:
-#        python-version: ${{ matrix.python-version }}
-#    - name: Create env file
-#      run: |
-#        echo "${{ secrets.ENV_FILE }}" >> .env
-#    - name: Install Dependencies
-#      run: |
-#        python -m pip install --upgrade pip
-#        pip install -r requirements/prod.txt
-#        sudo apt-get update && sudo apt-get install -y gettext
-#    - name: Compile Messages
-#      run: python manage.py compilemessages
-#    - name: Run Tests
-#      run: python manage.py test
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: CI/CD
+run-name: ${{ github.actor }} is testing the thermex.uz 🚀
+on:
+  pull_request:
+    branches: [main]
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+  testing:
+      runs-on: ubuntu-latest
+      container: python:3.9
+
+      services:
+        db:
+          image: postgres
+          env:
+            POSTGRES_PASSWORD: password
+            POSTGRES_USER: sammy
+            POSTGRES_DB: postgres
+          options: >-
+            --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5
+
+      steps:
+        - name: Check out repository code
+          uses: actions/checkout@v3
+        - name: Cache dependencies
+          uses: actions/cache@v2
+          with:
+            path: ~/.cache/pip
+            key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements/dev.txt') }}
+        - name: Install dependencies
+          run: pip install -r requirements/dev.txt
+        - name: Install gettext
+          run: apt-get update && apt-get install -y gettext
+        - name: Create env file
+          run: |
+            echo "${{ secrets.ENV_FILE }}" >> .env
+        - name: Compile messages
+          run: python3 manage.py compilemessages
+        - name: Run Tests
+          run: python3 manage.py test
+        - name: Run Linter
+          run: make lint
