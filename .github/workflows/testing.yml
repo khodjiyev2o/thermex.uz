@@ -1,8 +1,7 @@
 name: CI/CD
 run-name: ${{ github.actor }} is testing the thermex.uz 🚀
 on:
-  pull_request:
-    branches: [main]
+  push:
 jobs:
   testing:
       runs-on: ubuntu-latest
