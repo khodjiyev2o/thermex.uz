@@ -1,5 +1,7 @@
-from .base import *  # noqa
 import sys
+
+from .base import *  # noqa
+
 
 DEBUG = True
 ALLOWED_HOSTS = ["18.228.10.255", "127.0.0.1", "api.san-neo.uz"]
