@@ -5,14 +5,14 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-    - name: Check out repository code
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
-      with:
+      - name: Check out repository code
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
           python-version: '3.10'
           cache: 'pip'
-    - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-    - name: Install Dependencies
-    - run: pip install -r requirements.txt
-    - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Install Dependencies
+      - run: pip install -r requirements.txt
+      - run: echo "🍏 This job's status is ${{ job.status }}."
