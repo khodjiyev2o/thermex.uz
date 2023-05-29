@@ -13,5 +13,7 @@ jobs:
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('requirements/dev.txt') }}
+    - name: Install Dependencies
+      run: pip install -r requirements/dev.txt
     - name: Run Migrations
       run: python3 manage.py migrate
