@@ -58,3 +58,5 @@ jobs:
           # Runs a script that creates a PostgreSQL table, populates
           # the table with data, and then retrieves the data.
           run: python3 manage.py migrate
+        - name: Run Tests
+          run: python3 manage.py test
