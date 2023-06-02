@@ -34,8 +34,8 @@ class TestUserSoldProducts(APITestCase):
         )
 
     def test_create_sold_product_with_valid_data(self):
+        # first case - valid data - success
         headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
-
         data = {
             "product": self.product_instance.id,
             "barcode": "1112312",
@@ -48,19 +48,37 @@ class TestUserSoldProducts(APITestCase):
         assert response.json()["barcode"] == data["barcode"]
         assert response.json()["city"] == data["city"]
 
+        # second case - used barcode - error on uzbek
         image = Image.new("RGB", (100, 100))
         tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg")
         image.save(tmp_file)
         tmp_file.seek(0)
-
         data2 = {
             "product": self.product_instance.id,
             "barcode": self.used_barcode,
             "photo": tmp_file,
             "city": self.city_instance.id,
         }
+        headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}", "HTTP_ACCEPT_LANGUAGE": "uz"}
         response = self.client.post(self.url, data=data2, format="multipart", **headers)
-        assert list(response.json().keys()) == ["non_field_errors"]
+        assert response.json()["barcode"] == ["Bu mahsulot allaqachon qo'shilgan!"]
+
+        # third case - used barcode - error on russian
+        image = Image.new("RGB", (100, 100))
+        tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg")
+        image.save(tmp_file)
+        tmp_file.seek(0)
+        data2 = {
+            "product": self.product_instance.id,
+            "barcode": self.used_barcode,
+            "photo": tmp_file,
+            "city": self.city_instance.id,
+        }
+        headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
+        response = self.client.post(self.url, data=data2, format="multipart", **headers)
+        assert response.json()["barcode"] == ["Этот продукт уже добавлен !"]
+
+        # fourth case - valid data - success
         image = Image.new("RGB", (100, 100))
         tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg")
         image.save(tmp_file)

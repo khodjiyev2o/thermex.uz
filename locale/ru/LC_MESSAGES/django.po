@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-18 17:21+0500\n"
+"POT-Creation-Date: 2023-06-03 03:21+0500\n"
 "PO-Revision-Date: 2023-05-10 22:35+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -92,7 +92,7 @@ msgid "Updated at"
 msgstr "Обновлено в"
 
 #: apps/common/models.py:14 apps/common/models.py:25 apps/common/models.py:38
-#: apps/products/models.py:8 apps/products/models.py:32
+#: apps/products/models.py:9 apps/products/models.py:33
 #: venv/lib/python3.9/site-packages/fcm_django/models.py:23
 msgid "Name"
 msgstr "Имя"
@@ -105,8 +105,8 @@ msgstr "Область"
 msgid "Regions"
 msgstr "Области"
 
-#: apps/common/models.py:26 apps/common/models.py:29 apps/products/models.py:50
-#: apps/users/models.py:23
+#: apps/common/models.py:26 apps/common/models.py:29 apps/products/models.py:51
+#: apps/users/models.py:25
 msgid "City"
 msgstr "Город"
 
@@ -114,7 +114,7 @@ msgstr "Город"
 msgid "Cities"
 msgstr "Города"
 
-#: apps/common/models.py:41 apps/users/models.py:19
+#: apps/common/models.py:41 apps/users/models.py:21
 msgid "Occupation"
 msgstr "Профессия"
 
@@ -134,110 +134,114 @@ msgstr "Уведомление"
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: apps/products/models.py:11 apps/products/models.py:19
+#: apps/products/api_endpoints/sold_products/serializers.py:17
+msgid "Этот продукт уже добавлен !"
+msgstr ""
+
+#: apps/products/models.py:12 apps/products/models.py:20
 msgid "Category"
 msgstr "Категория"
 
-#: apps/products/models.py:12
+#: apps/products/models.py:13
 msgid "Categories"
 msgstr "Категории"
 
-#: apps/products/models.py:20 apps/products/models.py:23
-#: apps/products/models.py:24 apps/products/models.py:33
+#: apps/products/models.py:21 apps/products/models.py:24
+#: apps/products/models.py:25 apps/products/models.py:34
 msgid "Brand"
 msgstr "Брэнд"
 
-#: apps/products/models.py:34
+#: apps/products/models.py:35
 msgid "Point"
 msgstr "Баллы"
 
-#: apps/products/models.py:37 apps/products/models.py:46
+#: apps/products/models.py:38 apps/products/models.py:47
 msgid "Product"
 msgstr "Товар"
 
-#: apps/products/models.py:38
+#: apps/products/models.py:39
 msgid "Products"
 msgstr "Товары"
 
-#: apps/products/models.py:47 apps/users/models.py:51
+#: apps/products/models.py:48 apps/users/models.py:51
 msgid "User"
 msgstr "Пользователь"
 
-#: apps/products/models.py:49
+#: apps/products/models.py:50
 #, fuzzy
 #| msgid "Code"
 msgid "Bar Code"
 msgstr "Код"
 
-#: apps/products/models.py:53
+#: apps/products/models.py:54
 msgid "SoldProduct"
 msgstr "Проданный Товар"
 
-#: apps/products/models.py:54
+#: apps/products/models.py:55
 msgid "SoldProducts"
 msgstr "Проданные Товары"
 
-#: apps/users/api_endpoints/login/serializers.py:15
+#: apps/users/api_endpoints/login/serializers.py:16
 msgid "Invalid code"
 msgstr "Неверный код"
 
-#: apps/users/api_endpoints/profile/check_username/views.py:24
+#: apps/users/api_endpoints/profile/check_username/views.py:23
 msgid "Username is already taken"
 msgstr "Имя пользователя уже используется"
 
-#: apps/users/models.py:12
+#: apps/users/models.py:14
 msgid "First Name"
 msgstr "Имя"
 
-#: apps/users/models.py:13
+#: apps/users/models.py:15
 #, fuzzy
 #| msgid "Name"
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: apps/users/models.py:14
+#: apps/users/models.py:16
 msgid "Middle Name"
 msgstr "Отечество"
 
-#: apps/users/models.py:15
+#: apps/users/models.py:17
 #, fuzzy
 #| msgid "User"
 msgid "Username"
 msgstr "Имя Пользователя"
 
-#: apps/users/models.py:16 apps/users/models.py:56
+#: apps/users/models.py:18 apps/users/models.py:56
 msgid "Phone number"
 msgstr "Номер телефона"
 
-#: apps/users/models.py:17
+#: apps/users/models.py:19
 msgid "Email"
 msgstr "Электронная почта"
 
-#: apps/users/models.py:18
+#: apps/users/models.py:20
 msgid "Photo"
 msgstr "Фото"
 
-#: apps/users/models.py:20
+#: apps/users/models.py:22
 msgid "Data of Birth"
 msgstr "Дата рождения"
 
-#: apps/users/models.py:21
+#: apps/users/models.py:23
 msgid "Has Team"
 msgstr "Есть команда"
 
-#: apps/users/models.py:22
+#: apps/users/models.py:24
 msgid "Team Size"
 msgstr "Размер команды"
 
-#: apps/users/models.py:24
+#: apps/users/models.py:26
 msgid "Is Active"
 msgstr "Активен"
 
-#: apps/users/models.py:25
+#: apps/users/models.py:27
 msgid "Is Staff"
 msgstr "Персонал"
 
-#: apps/users/models.py:26
+#: apps/users/models.py:28
 msgid "Is SuperUser"
 msgstr "Является суперпользователем"
 
@@ -245,33 +249,322 @@ msgstr "Является суперпользователем"
 msgid "Users"
 msgstr "Пользователи"
 
-#: apps/users/models.py:57
+#: apps/users/models.py:58
 msgid "Code"
 msgstr "Код"
 
-#: apps/users/models.py:58
+#: apps/users/models.py:62
 msgid "Expires In"
 msgstr "Истекает в "
 
-#: apps/users/models.py:61
+#: apps/users/models.py:65
 msgid "Verification Code"
 msgstr "Проверочный код"
 
-#: apps/users/models.py:62
+#: apps/users/models.py:66
 msgid "Verification Codes"
 msgstr "Проверочные коды"
 
-#: config/settings/base.py:149 config/settings/base.py:153
+#: config/settings/base.py:140 config/settings/base.py:144
 msgid "Uzbek"
 msgstr "Узбек"
 
-#: config/settings/base.py:150 config/settings/base.py:154
+#: config/settings/base.py:141 config/settings/base.py:145
 msgid "Russian"
 msgstr "Русский"
 
-#: config/settings/base.py:171
+#: config/settings/base.py:159
 msgid "Devices"
 msgstr "Устройства"
+
+#: venv/lib/python3.9/site-packages/click/_termui_impl.py:496
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/_termui_impl.py:500
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:1097
+msgid "Aborted!"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:1282
+#: venv/lib/python3.9/site-packages/click/decorators.py:495
+msgid "Show this message and exit."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:1313
+#: venv/lib/python3.9/site-packages/click/core.py:1339
+#, python-brace-format
+msgid "(Deprecated) {text}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:1357
+#, fuzzy
+#| msgid "Occupations"
+msgid "Options"
+msgstr "Профессии"
+
+#: venv/lib/python3.9/site-packages/click/core.py:1383
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:1399
+msgid "DeprecationWarning: The command {name!r} is deprecated."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:1605
+msgid "Commands"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:1637
+msgid "Missing command."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:1715
+msgid "No such command {name!r}."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:2271
+msgid "Value must be an iterable."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:2291
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:2734
+#, python-brace-format
+msgid "env var: {var}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:2764
+msgid "(dynamic)"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:2777
+#, python-brace-format
+msgid "default: {default}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/core.py:2790
+msgid "required"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/decorators.py:400
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/decorators.py:464
+msgid "Show the version and exit."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:43
+#: venv/lib/python3.9/site-packages/click/exceptions.py:79
+#, python-brace-format
+msgid "Error: {message}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:71
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:120
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:122
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:178
+msgid "Missing argument"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:180
+msgid "Missing option"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:182
+msgid "Missing parameter"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:184
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:191
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:211
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:223
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:261
+msgid "unknown error"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/exceptions.py:268
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/parser.py:231
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/parser.py:413
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/parser.py:474
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.9/site-packages/click/shell_completion.py:316
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/shell_completion.py:322
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/termui.py:160
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/termui.py:176
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/termui.py:178
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/termui.py:189
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/termui.py:245
+msgid "Error: invalid input"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/termui.py:776
+msgid "Press any key to continue..."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:265
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:297
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:387
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:409
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:465
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:606
+msgid "{value!r} is not a valid boolean."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:630
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:811
+msgid "file"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:813
+msgid "directory"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:815
+msgid "path"
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:861
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:870
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:878
+#, python-brace-format
+msgid "{name} '{filename}' is a directory."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:887
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:896
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:905
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/click/types.py:972
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: venv/lib/python3.9/site-packages/django/contrib/messages/apps.py:15
 msgid "Messages"
@@ -480,7 +773,8 @@ msgstr "%(model_name)s с этим %(field_label)s уже exists."
 #. 'month'. Eg: "Title must be unique for pub_date year"
 #: venv/lib/python3.9/site-packages/django/db/models/fields/__init__.py:135
 #, python-format
-msgid "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
 msgstr ""
 
 #: venv/lib/python3.9/site-packages/django/db/models/fields/__init__.py:173
@@ -1636,6 +1930,10 @@ msgstr ""
 
 #: venv/lib/python3.9/site-packages/httplib2/__init__.py:1468
 msgid "Redirected but the response is missing a Location: header."
+msgstr ""
+
+#: venv/lib/python3.9/site-packages/isort/main.py:158
+msgid "show this help message and exit"
 msgstr ""
 
 #: venv/lib/python3.9/site-packages/modeltranslation/widgets.py:26

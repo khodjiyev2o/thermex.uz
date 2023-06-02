@@ -31,7 +31,7 @@ jobs:
         - name: Install gettext
           run: apt-get update && apt-get install -y gettext
         - name: Create env file
-          run: |
+          run: |  
             echo "${{ secrets.ENV_FILE }}" >> .env
         - name: Compile messages
           run: python3 manage.py compilemessages
