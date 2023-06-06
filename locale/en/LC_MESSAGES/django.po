@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-03 03:21+0500\n"
+"POT-Creation-Date: 2023-06-06 23:54+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,56 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/catalogue/api_endpoints/purchase_prize/views.py:26
+msgid "Not Enough points!"
+msgstr ""
+
+#: apps/catalogue/models.py:8 apps/catalogue/models.py:22
+#: apps/catalogue/models.py:34 apps/common/models.py:14
+#: apps/common/models.py:25 apps/common/models.py:38 apps/products/models.py:10
+#: apps/products/models.py:34
+#: venv/lib/python3.9/site-packages/fcm_django/models.py:23
+msgid "Name"
+msgstr ""
+
+#: apps/catalogue/models.py:11 apps/catalogue/models.py:20
+msgid "PrizeParentCategory"
+msgstr ""
+
+#: apps/catalogue/models.py:12
+msgid "PrizeParentCategories"
+msgstr ""
+
+#: apps/catalogue/models.py:25 apps/catalogue/models.py:26
+msgid "PrizeChildCategory"
+msgstr ""
+
+#: apps/catalogue/models.py:35 apps/products/models.py:13
+#: apps/products/models.py:21
+msgid "Category"
+msgstr ""
+
+#: apps/catalogue/models.py:36 apps/products/models.py:37
+msgid "Sell Point"
+msgstr ""
+
+#: apps/catalogue/models.py:37 apps/products/models.py:38
+#: apps/users/models.py:19
+msgid "Photo"
+msgstr ""
+
+#: apps/catalogue/models.py:38
+msgid "Description"
+msgstr ""
+
+#: apps/catalogue/models.py:41
+msgid "PrizeProduct"
+msgstr ""
+
+#: apps/catalogue/models.py:42
+msgid "PrizeProducts"
+msgstr ""
 
 #: apps/common/choices.py:6
 msgid "Tashkent shahri"
@@ -90,12 +140,6 @@ msgstr ""
 msgid "Updated at"
 msgstr ""
 
-#: apps/common/models.py:14 apps/common/models.py:25 apps/common/models.py:38
-#: apps/products/models.py:9 apps/products/models.py:33
-#: venv/lib/python3.9/site-packages/fcm_django/models.py:23
-msgid "Name"
-msgstr ""
-
 #: apps/common/models.py:20
 msgid "Region"
 msgstr ""
@@ -104,8 +148,8 @@ msgstr ""
 msgid "Regions"
 msgstr ""
 
-#: apps/common/models.py:26 apps/common/models.py:29 apps/products/models.py:51
-#: apps/users/models.py:25
+#: apps/common/models.py:26 apps/common/models.py:29 apps/products/models.py:54
+#: apps/users/models.py:24
 msgid "City"
 msgstr ""
 
@@ -113,7 +157,7 @@ msgstr ""
 msgid "Cities"
 msgstr ""
 
-#: apps/common/models.py:41 apps/users/models.py:21
+#: apps/common/models.py:41 apps/users/models.py:20
 msgid "Occupation"
 msgstr ""
 
@@ -137,45 +181,54 @@ msgstr ""
 msgid "Этот продукт уже добавлен !"
 msgstr ""
 
-#: apps/products/models.py:12 apps/products/models.py:20
-msgid "Category"
-msgstr ""
-
-#: apps/products/models.py:13
+#: apps/products/models.py:14
 msgid "Categories"
 msgstr ""
 
-#: apps/products/models.py:21 apps/products/models.py:24
-#: apps/products/models.py:25 apps/products/models.py:34
+#: apps/products/models.py:22 apps/products/models.py:25
+#: apps/products/models.py:26 apps/products/models.py:35
 msgid "Brand"
 msgstr ""
 
-#: apps/products/models.py:35
+#: apps/products/models.py:36
 msgid "Point"
 msgstr ""
 
-#: apps/products/models.py:38 apps/products/models.py:47
+#: apps/products/models.py:41 apps/products/models.py:50
 msgid "Product"
 msgstr ""
 
-#: apps/products/models.py:39
+#: apps/products/models.py:42
 msgid "Products"
 msgstr ""
 
-#: apps/products/models.py:48 apps/users/models.py:51
+#: apps/products/models.py:51 apps/products/models.py:72
+#: apps/users/models.py:55
 msgid "User"
 msgstr ""
 
-#: apps/products/models.py:50
+#: apps/products/models.py:53
 msgid "Bar Code"
 msgstr ""
 
-#: apps/products/models.py:54
+#: apps/products/models.py:57
 msgid "SoldProduct"
 msgstr ""
 
-#: apps/products/models.py:55
+#: apps/products/models.py:58
 msgid "SoldProducts"
+msgstr ""
+
+#: apps/products/models.py:67
+msgid "Thermex Product"
+msgstr ""
+
+#: apps/products/models.py:70
+msgid "Prize Product"
+msgstr ""
+
+#: apps/products/models.py:75 apps/products/models.py:76
+msgid "UserBoughtProducts"
 msgstr ""
 
 #: apps/users/api_endpoints/login/serializers.py:16
@@ -186,44 +239,44 @@ msgstr ""
 msgid "Username is already taken"
 msgstr ""
 
-#: apps/users/models.py:14
+#: apps/users/models.py:13
 msgid "First Name"
 msgstr ""
 
-#: apps/users/models.py:15
+#: apps/users/models.py:14
 msgid "Last Name"
 msgstr ""
 
-#: apps/users/models.py:16
+#: apps/users/models.py:15
 msgid "Middle Name"
 msgstr ""
 
-#: apps/users/models.py:17
+#: apps/users/models.py:16
 msgid "Username"
 msgstr ""
 
-#: apps/users/models.py:18 apps/users/models.py:56
+#: apps/users/models.py:17 apps/users/models.py:60
 msgid "Phone number"
 msgstr ""
 
-#: apps/users/models.py:19
+#: apps/users/models.py:18
 msgid "Email"
 msgstr ""
 
-#: apps/users/models.py:20
-msgid "Photo"
-msgstr ""
-
-#: apps/users/models.py:22
+#: apps/users/models.py:21
 msgid "Data of Birth"
 msgstr ""
 
-#: apps/users/models.py:23
+#: apps/users/models.py:22
 msgid "Has Team"
 msgstr ""
 
-#: apps/users/models.py:24
+#: apps/users/models.py:23
 msgid "Team Size"
+msgstr ""
+
+#: apps/users/models.py:25
+msgid "Points"
 msgstr ""
 
 #: apps/users/models.py:26
@@ -238,35 +291,35 @@ msgstr ""
 msgid "Is SuperUser"
 msgstr ""
 
-#: apps/users/models.py:52
+#: apps/users/models.py:56
 msgid "Users"
 msgstr ""
 
-#: apps/users/models.py:58
+#: apps/users/models.py:62
 msgid "Code"
 msgstr ""
 
-#: apps/users/models.py:62
+#: apps/users/models.py:66
 msgid "Expires In"
 msgstr ""
 
-#: apps/users/models.py:65
+#: apps/users/models.py:69
 msgid "Verification Code"
 msgstr ""
 
-#: apps/users/models.py:66
+#: apps/users/models.py:70
 msgid "Verification Codes"
 msgstr ""
 
-#: config/settings/base.py:140 config/settings/base.py:144
+#: config/settings/base.py:141 config/settings/base.py:145
 msgid "Uzbek"
 msgstr ""
 
-#: config/settings/base.py:141 config/settings/base.py:145
+#: config/settings/base.py:142 config/settings/base.py:146
 msgid "Russian"
 msgstr ""
 
-#: config/settings/base.py:159
+#: config/settings/base.py:160
 msgid "Devices"
 msgstr ""
 

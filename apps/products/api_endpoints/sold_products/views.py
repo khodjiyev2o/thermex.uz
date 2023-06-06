@@ -1,12 +1,10 @@
-from django.db.models import Sum
-from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
 from apps.products.api_endpoints.sold_products.serializers import (
     CreateSoldProductSerializer,
     ListSoldProductSerializer,
+    UserPointSerializer,
 )
 from apps.products.models import SoldProduct
 
@@ -20,13 +18,12 @@ class SoldProductCreatetView(CreateAPIView):
         serializer.save(user=self.request.user)
 
 
-class UserPointsView(APIView):
+class UserPointsView(RetrieveAPIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = UserPointSerializer
 
-    def get(self, request):
-        points = SoldProduct.objects.filter(user=self.request.user).aggregate(points=Sum("product__point"))["points"]
-        data = {"success": True, "message": "Successfull", "points": points or 0}
-        return Response(data)
+    def get_object(self):
+        return self.request.user
 
 
 class UserSoldProductListView(ListAPIView):

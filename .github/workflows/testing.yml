@@ -45,26 +45,20 @@ jobs:
     needs: testing
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: Checkout code
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          rsync -az --exclude '.env' \
-                --exclude 'media/' \
-                -e "ssh -o StrictHostKeyChecking=no" \
-                . ec2-user@${{ secrets.EC2_INSTANCE_IP }}:~/thermex.uz/
-      - name: SSH into server and deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_INSTANCE_IP }}
-          username: ec2-user
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd ~/thermex.uz
-            docker-compose down 
-            docker container prune -f
-            docker image prune -f
-            docker-compose up -d --build
-      - name: Job Status
-        run: echo "🍏 Deployment status is ${{ job.status }}."
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: SSH into server and deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_IP_ADDRESS }}
+        username: root
+        password: ${{ secrets.SERVER_PASSWORD }}
+        port: 22
+        script: |
+          cd ~/thermex.uz
+          docker-compose down
+          docker container prune -f
+          docker image prune -f
+          docker-compose up -d --build
+    - name: Job Status
+      run: echo "🍏 Deployment status is ${{ job.status }}."

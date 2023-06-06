@@ -1,9 +1,9 @@
 from django.apps import AppConfig
 
 
-class ProductsConfig(AppConfig):
+class CatalogueConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "apps.products"
+    name = "apps.catalogue"
 
     def ready(self):
-        from . import signals  # noqa
+        from apps.catalogue import signals  # noqa

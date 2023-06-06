@@ -6,7 +6,6 @@ from phonenumber_field.modelfields import PhoneNumberField
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.common.models import BaseModel, City, Occupation
-
 from .managers import UserManager
 
 
@@ -23,6 +22,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     has_team = models.BooleanField(_("Has Team"), default=False)
     team_size = models.PositiveIntegerField(_("Team Size"), default=1)
     city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name=_("City"), null=True, blank=True)
+    points = models.PositiveIntegerField(default=0, verbose_name=_("Points"))
     is_active = models.BooleanField(_("Is Active"), default=True)
     is_staff = models.BooleanField(_("Is Staff"), default=False)
     is_superuser = models.BooleanField(_("Is SuperUser"), default=False)
@@ -46,6 +46,10 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     def tokens(self):
         token = RefreshToken.for_user(self)
         return {"access": str(token.access_token), "refresh": str(token)}
+
+    @property
+    def life_time_collected_points(self):
+        return self.sold_products.aggregate(points=models.Sum("product__point"))["points"] or 0
 
     class Meta:
         verbose_name = _("User")

@@ -12,6 +12,7 @@ urlpatterns = [
     path("api/v1/users/", include("apps.users.urls")),
     path("api/v1/common/", include("apps.common.urls")),
     path("api/v1/products/", include("apps.products.urls")),
+    path("api/v1/catalogue/", include("apps.catalogue.urls")),
 ]
 urlpatterns += i18n_patterns(path("admin/", admin.site.urls))
 urlpatterns += swaggerurlpatterns

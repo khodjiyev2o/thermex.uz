@@ -1,8 +1,9 @@
+from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
 from apps.products.models import SoldProduct
 from apps.users.api_endpoints.profile.detail.serializers import UserRegionListSerializer
-from django.utils.translation import gettext_lazy as _
+from apps.users.models import User
 
 
 class CreateSoldProductSerializer(serializers.ModelSerializer):
@@ -27,3 +28,9 @@ class ListSoldProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = SoldProduct
         fields = ("id", "product", "photo", "barcode", "point", "created_at", "city")
+
+
+class UserPointSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("points",)

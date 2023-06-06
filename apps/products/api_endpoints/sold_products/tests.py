@@ -97,9 +97,7 @@ class TestUserSoldProducts(APITestCase):
         url = reverse("sold-product-user-points")
         headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
         response = self.client.get(url, **headers)
-        assert response.json()["success"] is True
-        assert response.json()["message"] == "Successfull"
-        assert response.json()["points"] == self.product_instance.point
+        assert response.json() == {"points": self.product_instance.point}
 
     def test_user_points_no_token(self):
         url = reverse("sold-product-user-points")

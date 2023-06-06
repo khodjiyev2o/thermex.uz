@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-03 03:21+0500\n"
+"POT-Creation-Date: 2023-06-06 23:54+0500\n"
 "PO-Revision-Date: 2023-05-10 22:35+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,6 +18,51 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.3\n"
+
+#: apps/catalogue/api_endpoints/purchase_prize/views.py:26
+msgid "Not Enough points!"
+msgstr "Недостаточно баллов!"
+
+msgid "Name"
+msgstr "Имя"
+
+#: apps/catalogue/models.py:11 apps/catalogue/models.py:20
+msgid "PrizeParentCategory"
+msgstr "Категории Приза"
+
+#: apps/catalogue/models.py:12
+msgid "PrizeParentCategories"
+msgstr "Категории Призов"
+
+#: apps/catalogue/models.py:25 apps/catalogue/models.py:26
+msgid "PrizeChildCategory"
+msgstr "Суб-Категория"
+
+#: apps/catalogue/models.py:35 apps/products/models.py:13
+#: apps/products/models.py:21
+msgid "Category"
+msgstr "Категория"
+
+#: apps/catalogue/models.py:36 apps/products/models.py:37
+msgid "Sell Point"
+msgstr "Покупаемый Балл"
+
+#: apps/catalogue/models.py:37 apps/products/models.py:38
+#: apps/users/models.py:19
+msgid "Photo"
+msgstr "Фото"
+
+#: apps/catalogue/models.py:38
+msgid "Description"
+msgstr "Описание"
+
+#: apps/catalogue/models.py:41
+msgid "PrizeProduct"
+msgstr "Приз Товар"
+
+#: apps/catalogue/models.py:42
+msgid "PrizeProducts"
+msgstr "Приз Товары"
 
 #: apps/common/choices.py:6
 msgid "Tashkent shahri"
@@ -91,12 +136,6 @@ msgstr "Создан в"
 msgid "Updated at"
 msgstr "Обновлено в"
 
-#: apps/common/models.py:14 apps/common/models.py:25 apps/common/models.py:38
-#: apps/products/models.py:9 apps/products/models.py:33
-#: venv/lib/python3.9/site-packages/fcm_django/models.py:23
-msgid "Name"
-msgstr "Имя"
-
 #: apps/common/models.py:20
 msgid "Region"
 msgstr "Область"
@@ -105,8 +144,8 @@ msgstr "Область"
 msgid "Regions"
 msgstr "Области"
 
-#: apps/common/models.py:26 apps/common/models.py:29 apps/products/models.py:51
-#: apps/users/models.py:25
+#: apps/common/models.py:26 apps/common/models.py:29 apps/products/models.py:54
+#: apps/users/models.py:24
 msgid "City"
 msgstr "Город"
 
@@ -114,7 +153,7 @@ msgstr "Город"
 msgid "Cities"
 msgstr "Города"
 
-#: apps/common/models.py:41 apps/users/models.py:21
+#: apps/common/models.py:41 apps/users/models.py:20
 msgid "Occupation"
 msgstr "Профессия"
 
@@ -138,48 +177,55 @@ msgstr "Уведомления"
 msgid "Этот продукт уже добавлен !"
 msgstr ""
 
-#: apps/products/models.py:12 apps/products/models.py:20
-msgid "Category"
-msgstr "Категория"
-
-#: apps/products/models.py:13
+#: apps/products/models.py:14
 msgid "Categories"
 msgstr "Категории"
 
-#: apps/products/models.py:21 apps/products/models.py:24
-#: apps/products/models.py:25 apps/products/models.py:34
+#: apps/products/models.py:22 apps/products/models.py:25
+#: apps/products/models.py:26 apps/products/models.py:35
 msgid "Brand"
 msgstr "Брэнд"
 
-#: apps/products/models.py:35
+#: apps/products/models.py:36
 msgid "Point"
 msgstr "Баллы"
 
-#: apps/products/models.py:38 apps/products/models.py:47
+#: apps/products/models.py:41 apps/products/models.py:50
 msgid "Product"
 msgstr "Товар"
 
-#: apps/products/models.py:39
+#: apps/products/models.py:42
 msgid "Products"
 msgstr "Товары"
 
-#: apps/products/models.py:48 apps/users/models.py:51
+#: apps/products/models.py:51 apps/products/models.py:72
+#: apps/users/models.py:55
 msgid "User"
 msgstr "Пользователь"
 
-#: apps/products/models.py:50
-#, fuzzy
-#| msgid "Code"
+#: apps/products/models.py:53
 msgid "Bar Code"
 msgstr "Код"
 
-#: apps/products/models.py:54
+#: apps/products/models.py:57
 msgid "SoldProduct"
 msgstr "Проданный Товар"
 
-#: apps/products/models.py:55
+#: apps/products/models.py:58
 msgid "SoldProducts"
 msgstr "Проданные Товары"
+
+#: apps/products/models.py:67
+msgid "Thermex Product"
+msgstr "Товар Thermx"
+
+#: apps/products/models.py:70
+msgid "Prize Product"
+msgstr "Приз Товар"
+
+#: apps/products/models.py:75 apps/products/models.py:76
+msgid "UserBoughtProducts"
+msgstr "Подарки пользователей"
 
 #: apps/users/api_endpoints/login/serializers.py:16
 msgid "Invalid code"
@@ -189,49 +235,49 @@ msgstr "Неверный код"
 msgid "Username is already taken"
 msgstr "Имя пользователя уже используется"
 
-#: apps/users/models.py:14
+#: apps/users/models.py:13
 msgid "First Name"
 msgstr "Имя"
 
-#: apps/users/models.py:15
+#: apps/users/models.py:14
 #, fuzzy
 #| msgid "Name"
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: apps/users/models.py:16
+#: apps/users/models.py:15
 msgid "Middle Name"
 msgstr "Отечество"
 
-#: apps/users/models.py:17
+#: apps/users/models.py:16
 #, fuzzy
 #| msgid "User"
 msgid "Username"
 msgstr "Имя Пользователя"
 
-#: apps/users/models.py:18 apps/users/models.py:56
+#: apps/users/models.py:17 apps/users/models.py:60
 msgid "Phone number"
 msgstr "Номер телефона"
 
-#: apps/users/models.py:19
+#: apps/users/models.py:18
 msgid "Email"
 msgstr "Электронная почта"
 
-#: apps/users/models.py:20
-msgid "Photo"
-msgstr "Фото"
-
-#: apps/users/models.py:22
+#: apps/users/models.py:21
 msgid "Data of Birth"
 msgstr "Дата рождения"
 
-#: apps/users/models.py:23
+#: apps/users/models.py:22
 msgid "Has Team"
 msgstr "Есть команда"
 
-#: apps/users/models.py:24
+#: apps/users/models.py:23
 msgid "Team Size"
 msgstr "Размер команды"
+
+#: apps/users/models.py:25
+msgid "Points"
+msgstr "Баллы"
 
 #: apps/users/models.py:26
 msgid "Is Active"
@@ -245,35 +291,35 @@ msgstr "Персонал"
 msgid "Is SuperUser"
 msgstr "Является суперпользователем"
 
-#: apps/users/models.py:52
+#: apps/users/models.py:56
 msgid "Users"
 msgstr "Пользователи"
 
-#: apps/users/models.py:58
+#: apps/users/models.py:62
 msgid "Code"
 msgstr "Код"
 
-#: apps/users/models.py:62
+#: apps/users/models.py:66
 msgid "Expires In"
 msgstr "Истекает в "
 
-#: apps/users/models.py:65
+#: apps/users/models.py:69
 msgid "Verification Code"
 msgstr "Проверочный код"
 
-#: apps/users/models.py:66
+#: apps/users/models.py:70
 msgid "Verification Codes"
 msgstr "Проверочные коды"
 
-#: config/settings/base.py:140 config/settings/base.py:144
+#: config/settings/base.py:141 config/settings/base.py:145
 msgid "Uzbek"
 msgstr "Узбек"
 
-#: config/settings/base.py:141 config/settings/base.py:145
+#: config/settings/base.py:142 config/settings/base.py:146
 msgid "Russian"
 msgstr "Русский"
 
-#: config/settings/base.py:159
+#: config/settings/base.py:160
 msgid "Devices"
 msgstr "Устройства"
 
@@ -1939,6 +1985,12 @@ msgstr ""
 #: venv/lib/python3.9/site-packages/modeltranslation/widgets.py:26
 msgid "None"
 msgstr ""
+
+msgid "Other"
+msgstr "Другие"
+
+msgid "Type"
+msgstr "Тип"
 
 msgid "Authentication credentials were not provided."
 msgstr "Учетные данные для аутентификации не были предоставлены."

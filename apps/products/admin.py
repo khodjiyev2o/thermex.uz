@@ -1,7 +1,7 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
-from .models import Brand, Category, Product, SoldProduct
+from .models import Brand, Category, Product, SoldProduct, UserBoughtProduct
 
 
 @admin.register(Category)
@@ -34,4 +34,14 @@ class SoldProductAdmin(admin.ModelAdmin):
         "barcode",
         "created_at",
         "city___name",
+    )
+
+
+@admin.register(UserBoughtProduct)
+class UserBoughtProductAdmin(admin.ModelAdmin):
+    list_display = ("id", "user", "created_at")
+    search_fields = (
+        "user__phone",
+        "product__name",
+        "created_at",
     )

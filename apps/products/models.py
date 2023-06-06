@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from apps.catalogue.models import PrizeProduct
 from apps.common.models import BaseModel, City
 from apps.users.models import User
 
@@ -33,6 +34,8 @@ class Product(BaseModel):
     name = models.CharField(max_length=256, verbose_name=_("Name"))
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name=_("Brand"))
     point = models.PositiveIntegerField(default=1, verbose_name=_("Point"))
+    sell_point = models.PositiveIntegerField(default=100, verbose_name=_("Sell Point"))
+    photo = models.ImageField(_("Photo"), upload_to="products/%Y/%m", blank=True, null=True)
 
     class Meta:
         verbose_name = _("Product")
@@ -57,3 +60,22 @@ class SoldProduct(BaseModel):
 
     def __str__(self):
         return f"Name: {self.product} User: {self.user}"
+
+
+class UserBoughtProduct(BaseModel):
+    thermex_product = models.ForeignKey(
+        Product, null=True, blank=True, on_delete=models.CASCADE, verbose_name=_("Thermex Product")
+    )
+    prize_product = models.ForeignKey(
+        PrizeProduct, null=True, blank=True, on_delete=models.CASCADE, verbose_name=_("Prize Product")
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("User"), related_name="bought_products")
+
+    class Meta:
+        verbose_name = _("UserBoughtProducts")
+        verbose_name_plural = _("UserBoughtProducts")
+
+    def __str__(self):
+        if self.thermex_product:
+            return f"Name: {self.thermex_product} User: {self.user}"
+        return f"Name: {self.prize_product} User: {self.user}"

@@ -34,6 +34,15 @@ class TestBrandView(APITestCase):
         assert len(response.json()) == len(category_brand_dict[category_name])
         assert list(response.json()[0].keys()) == ["id", "name"]
 
+    def test_brand_list_wrong_pk(self):
+        url = reverse("brand-list", kwargs={"pk": 11111111111})
+        headers = {
+            "HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}",
+        }
+        response = self.client.get(url, **headers)
+        assert response.status_code == 200
+        assert response.json() == []
+
     def test_brand_list_no_auth_russian(self):
         url = reverse("brand-list", kwargs={"pk": 1})
         headers = {"HTTP_ACCEPT_LANGUAGE": "ru"}

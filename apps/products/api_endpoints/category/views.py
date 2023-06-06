@@ -6,6 +6,6 @@ from apps.products.models import Category
 
 
 class CategoryListView(ListAPIView):
-    queryset = Category.objects.all()
+    queryset = Category.objects.filter()
     serializer_class = CategoryListSerializer
     permission_classes = [IsAuthenticated]

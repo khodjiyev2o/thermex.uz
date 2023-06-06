@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-03 03:21+0500\n"
+"POT-Creation-Date: 2023-06-06 23:54+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: apps/catalogue/api_endpoints/purchase_prize/views.py:26
+msgid "Not Enough points!"
+msgstr "Ballar yetarli emas!"
+
+
+msgid "Name"
+msgstr "Ism"
+
+#: apps/catalogue/models.py:11 apps/catalogue/models.py:20
+msgid "PrizeParentCategory"
+msgstr "Priz Categoriyalari"
+
+#: apps/catalogue/models.py:12
+#, fuzzy
+#| msgid "Categories"
+msgid "PrizeParentCategories"
+msgstr "Priz Kategoriyalari"
+
+#: apps/catalogue/models.py:25 apps/catalogue/models.py:26
+#, fuzzy
+#| msgid "Category"
+msgid "PrizeChildCategory"
+msgstr "Sub-Kategoriya"
+
+#: apps/catalogue/models.py:35 apps/products/models.py:13
+#: apps/products/models.py:21
+msgid "Category"
+msgstr "Kategoriya"
+
+#: apps/catalogue/models.py:36 apps/products/models.py:37
+#, fuzzy
+#| msgid "Point"
+msgid "Sell Point"
+msgstr "Sotib olinadigan Ball"
+
+#: apps/catalogue/models.py:37 apps/products/models.py:38
+#: apps/users/models.py:19
+msgid "Photo"
+msgstr "Surat"
+
+#: apps/catalogue/models.py:38
+msgid "Description"
+msgstr "Tavsif"
+
+#: apps/catalogue/models.py:41
+#, fuzzy
+#| msgid "Product"
+msgid "PrizeProduct"
+msgstr "Priz Tovar"
+
+#: apps/catalogue/models.py:42
+#, fuzzy
+#| msgid "Products"
+msgid "PrizeProducts"
+msgstr "Priz Tovarlar"
 
 #: apps/common/choices.py:6
 msgid "Tashkent shahri"
@@ -90,12 +146,6 @@ msgstr "Yaratilgan"
 msgid "Updated at"
 msgstr "Yangilangan"
 
-#: apps/common/models.py:14 apps/common/models.py:25 apps/common/models.py:38
-#: apps/products/models.py:9 apps/products/models.py:33
-#: venv/lib/python3.9/site-packages/fcm_django/models.py:23
-msgid "Name"
-msgstr "Ism"
-
 #: apps/common/models.py:20
 msgid "Region"
 msgstr "Viloyat"
@@ -104,8 +154,8 @@ msgstr "Viloyat"
 msgid "Regions"
 msgstr "Viloyatlar"
 
-#: apps/common/models.py:26 apps/common/models.py:29 apps/products/models.py:51
-#: apps/users/models.py:25
+#: apps/common/models.py:26 apps/common/models.py:29 apps/products/models.py:54
+#: apps/users/models.py:24
 msgid "City"
 msgstr "Shahar"
 
@@ -113,7 +163,7 @@ msgstr "Shahar"
 msgid "Cities"
 msgstr "Shaharlar"
 
-#: apps/common/models.py:41 apps/users/models.py:21
+#: apps/common/models.py:41 apps/users/models.py:20
 msgid "Occupation"
 msgstr "Ishchi"
 
@@ -141,48 +191,63 @@ msgstr "Tasdiq kodlar"
 msgid "Этот продукт уже добавлен !"
 msgstr "Bu mahsulot allaqachon qo'shilgan!"
 
-#: apps/products/models.py:12 apps/products/models.py:20
-msgid "Category"
-msgstr "Kategoriya"
-
-#: apps/products/models.py:13
+#: apps/products/models.py:14
 msgid "Categories"
 msgstr "Kategoriyalar"
 
-#: apps/products/models.py:21 apps/products/models.py:24
-#: apps/products/models.py:25 apps/products/models.py:34
+#: apps/products/models.py:22 apps/products/models.py:25
+#: apps/products/models.py:26 apps/products/models.py:35
 msgid "Brand"
 msgstr "Brend"
 
-#: apps/products/models.py:35
+#: apps/products/models.py:36
 msgid "Point"
 msgstr "Ball"
 
-#: apps/products/models.py:38 apps/products/models.py:47
+#: apps/products/models.py:41 apps/products/models.py:50
 msgid "Product"
 msgstr "Tovar"
 
-#: apps/products/models.py:39
+#: apps/products/models.py:42
 msgid "Products"
 msgstr "Tovarlar"
 
-#: apps/products/models.py:48 apps/users/models.py:51
+#: apps/products/models.py:51 apps/products/models.py:72
+#: apps/users/models.py:55
 msgid "User"
 msgstr "Foydalanuvchi"
 
-#: apps/products/models.py:50
+#: apps/products/models.py:53
 #, fuzzy
 #| msgid "Code"
 msgid "Bar Code"
 msgstr "Kod"
 
-#: apps/products/models.py:54
+#: apps/products/models.py:57
 msgid "SoldProduct"
 msgstr "Sotilgan Tovar"
 
-#: apps/products/models.py:55
+#: apps/products/models.py:58
 msgid "SoldProducts"
 msgstr "Sotilgan Tovarlar"
+
+#: apps/products/models.py:67
+#, fuzzy
+#| msgid "Product"
+msgid "Thermex Product"
+msgstr "Tovar"
+
+#: apps/products/models.py:70
+#, fuzzy
+#| msgid "Product"
+msgid "Prize Product"
+msgstr "Tovar"
+
+#: apps/products/models.py:75 apps/products/models.py:76
+#, fuzzy
+#| msgid "Products"
+msgid "UserBoughtProducts"
+msgstr "Foydalanuvchi sovg'alari"
 
 #: apps/users/api_endpoints/login/serializers.py:16
 msgid "Invalid code"
@@ -192,47 +257,49 @@ msgstr "Notugri kod"
 msgid "Username is already taken"
 msgstr "Foydalanuvchi nomi allaqachon olingan"
 
-#: apps/users/models.py:14
+#: apps/users/models.py:13
 msgid "First Name"
 msgstr "Ism"
 
-#: apps/users/models.py:15
+#: apps/users/models.py:14
 #, fuzzy
 #| msgid "Name"
 msgid "Last Name"
 msgstr "Familiya"
 
-#: apps/users/models.py:16
+#: apps/users/models.py:15
 msgid "Middle Name"
 msgstr "Sharif"
 
-#: apps/users/models.py:17
+#: apps/users/models.py:16
 msgid "Username"
 msgstr "Foydalanuvchi ismi"
 
-#: apps/users/models.py:18 apps/users/models.py:56
+#: apps/users/models.py:17 apps/users/models.py:60
 msgid "Phone number"
 msgstr "Telefon raqami"
 
-#: apps/users/models.py:19
+#: apps/users/models.py:18
 msgid "Email"
 msgstr "Elektron pochta"
 
-#: apps/users/models.py:20
-msgid "Photo"
-msgstr "Surat"
-
-#: apps/users/models.py:22
+#: apps/users/models.py:21
 msgid "Data of Birth"
 msgstr "Tug'ilgan sa'na"
 
-#: apps/users/models.py:23
+#: apps/users/models.py:22
 msgid "Has Team"
 msgstr "Jamoasi bor"
 
-#: apps/users/models.py:24
+#: apps/users/models.py:23
 msgid "Team Size"
 msgstr "Jamoa hajmi"
+
+#: apps/users/models.py:25
+#, fuzzy
+#| msgid "Point"
+msgid "Points"
+msgstr "Ball"
 
 #: apps/users/models.py:26
 msgid "Is Active"
@@ -246,35 +313,35 @@ msgstr "Xodim"
 msgid "Is SuperUser"
 msgstr "Admin"
 
-#: apps/users/models.py:52
+#: apps/users/models.py:56
 msgid "Users"
 msgstr "Foydalanuvchilar"
 
-#: apps/users/models.py:58
+#: apps/users/models.py:62
 msgid "Code"
 msgstr "Kod"
 
-#: apps/users/models.py:62
+#: apps/users/models.py:66
 msgid "Expires In"
 msgstr "Muddati tugaydi"
 
-#: apps/users/models.py:65
+#: apps/users/models.py:69
 msgid "Verification Code"
 msgstr "Tasdiq kodi"
 
-#: apps/users/models.py:66
+#: apps/users/models.py:70
 msgid "Verification Codes"
 msgstr "Tasdiq kodlar"
 
-#: config/settings/base.py:140 config/settings/base.py:144
+#: config/settings/base.py:141 config/settings/base.py:145
 msgid "Uzbek"
 msgstr "O'zbek"
 
-#: config/settings/base.py:141 config/settings/base.py:145
+#: config/settings/base.py:142 config/settings/base.py:146
 msgid "Russian"
 msgstr "Rus tili"
 
-#: config/settings/base.py:159
+#: config/settings/base.py:160
 msgid "Devices"
 msgstr "Qurilmalar"
 
@@ -1906,16 +1973,20 @@ msgstr ""
 msgid "None"
 msgstr ""
 
+msgid "Other"
+msgstr "Boshqa"
+
+msgid "Type"
+msgstr "Turi"
+
 msgid "Authentication credentials were not provided."
 msgstr "Autentifikatsiya maʼlumotlari taqdim etilmagan."
 
-#, fuzzy
-#~| msgid "General"
-#~ msgid "General "
-#~ msgstr "Umumiy"
+msgid "General "
+msgstr "Umumiy"
 
-#~ msgid "Job"
-#~ msgstr "Kasb"
+msgid "Job"
+msgstr "Kasb"
 
-#~ msgid "English"
-#~ msgstr "Ingliz tili"
+msgid "English"
+msgstr "Ingliz tili"
