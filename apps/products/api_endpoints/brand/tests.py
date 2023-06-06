@@ -31,6 +31,7 @@ class TestBrandView(APITestCase):
         response = self.client.get(url, **headers)
         category_name = category_choices[0]
         assert response.status_code == 200
+        print(response.json())
         assert len(response.json()) == len(category_brand_dict[category_name])
         assert list(response.json()[0].keys()) == ["id", "name"]
 

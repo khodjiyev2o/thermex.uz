@@ -41,7 +41,6 @@ class TestUserPurchasePrizeProducts(APITestCase):
             "prize_product": self.prize_product.id,
         }
         response = self.client.post(self.url, data=data, **headers)
-        print(response.json())
         assert response.status_code == 201
         assert list(response.json().keys()) == ["id", "thermex_product", "prize_product"]
 
@@ -51,7 +50,6 @@ class TestUserPurchasePrizeProducts(APITestCase):
             "thermex_product": self.product_instance.id,
         }
         response = self.client.post(self.url, data=data, **headers)
-        print(response.json())
         assert response.status_code == 201
         assert list(response.json().keys()) == ["id", "thermex_product", "prize_product"]
 
@@ -62,7 +60,6 @@ class TestUserPurchasePrizeProducts(APITestCase):
             "thermex_product": self.expensive_thermex_product.id,
         }
         response = self.client.post(self.url, data=data, **headers)
-        print("Themex", response.json())
         assert response.status_code == 400
         assert response.json()["detail"] == "Недостаточно баллов!"
         assert self.user.points == self.product_instance.point
@@ -73,6 +70,5 @@ class TestUserPurchasePrizeProducts(APITestCase):
             "prize_product": self.expensive_prize_product.id,
         }
         response = self.client.post(self.url, data=data, **headers)
-        print(response.json())
         assert response.status_code == 400
         assert response.json()["detail"] == "Недостаточно баллов!"
