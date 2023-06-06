@@ -49,9 +49,9 @@ jobs:
     - name: copy file via ssh password
       uses: appleboy/scp-action@v0.1.4
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        host: ${{ secrets.SERVER_IP_ADDRESS }}
+        username: root
+        password: ${{ secrets.SERVER_PASSWORD }}
         port: 22
         source: .
         target: thermex
