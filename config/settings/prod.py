@@ -14,3 +14,8 @@ DATABASES = {
         "PORT": env.str("DB_PORT"),
     },
 }
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+ADMINS = [
+    ("Admin Name", env.str("DEFAULT_EMAIL")),
+]
+SERVER_EMAIL = env.str("DEFAULT_EMAIL")

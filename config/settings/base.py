@@ -161,3 +161,4 @@ FCM_DJANGO_SETTINGS = {
     "ONE_DEVICE_PER_USER": False,
     "DELETE_INACTIVE_DEVICES": False,
 }
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
