@@ -1,5 +1,3 @@
-import sys
-
 from .base import *  # noqa
 
 
@@ -16,10 +14,3 @@ DATABASES = {
         "PORT": env.str("DB_PORT"),
     },
 }
-if "test" not in sys.argv:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
