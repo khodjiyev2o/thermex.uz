@@ -31,7 +31,7 @@ class TestUserPurchasePrizeProducts(APITestCase):
         self.expensive_prize_product = PrizeProduct.objects.create(
             name="Iphone 14 Pro", description="256 gb memory", category=self.child_category, sell_point=250
         )
-        self.expensive_prize_product = Product.objects.create(
+        self.expensive_thermex_product = Product.objects.create(
             name="Test Product 2", brand=self.brand_instance, sell_point=201
         )
 
@@ -48,7 +48,7 @@ class TestUserPurchasePrizeProducts(APITestCase):
     def test_purchase_thermex_product_with_valid_data(self):
         headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
         data = {
-            "prize_product": self.product_instance.id,
+            "thermex_product": self.product_instance.id,
         }
         response = self.client.post(self.url, data=data, **headers)
         print(response.json())
@@ -59,10 +59,10 @@ class TestUserPurchasePrizeProducts(APITestCase):
         assert self.user.points == self.product_instance.point
         headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
         data = {
-            "prize_product": self.expensive_prize_product.id,
+            "thermex_product": self.expensive_thermex_product.id,
         }
         response = self.client.post(self.url, data=data, **headers)
-        print(response.json())
+        print("Themex", response.json())
         assert response.status_code == 400
         assert response.json()["detail"] == "Недостаточно баллов!"
         assert self.user.points == self.product_instance.point
