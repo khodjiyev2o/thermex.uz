@@ -1,9 +1,7 @@
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 
-from apps.catalogue.api_endpoints.prize_product.serializers import (
-    ProductListSerializer,
-)
+from apps.catalogue.api_endpoints.prize_product.serializers import ProductListSerializer
 from apps.catalogue.models import PrizeProduct
 
 

@@ -2,9 +2,10 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 from rest_framework.test import APITestCase
 
+from apps.catalogue.models import PrizeChildCategory, PrizeParentCategory, PrizeProduct
 from apps.common.models import City, Region
 from apps.products.models import Brand, Category, Product, SoldProduct
-from apps.catalogue.models import PrizeChildCategory, PrizeParentCategory, PrizeProduct
+
 
 User = get_user_model()
 

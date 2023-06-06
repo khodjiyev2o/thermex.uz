@@ -1,10 +1,13 @@
+from django.utils.translation import gettext_lazy as _
+from rest_framework import status
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import IsAuthenticated
-from apps.catalogue.api_endpoints.purchase_prize.serializers import PurchaseProductSerializer
-from apps.products.models import UserBoughtProduct
-from rest_framework import status
 from rest_framework.response import Response
-from django.utils.translation import gettext_lazy as _
+
+from apps.catalogue.api_endpoints.purchase_prize.serializers import (
+    PurchaseProductSerializer,
+)
+from apps.products.models import UserBoughtProduct
 
 
 class UserPurchasePrizeProductView(GenericAPIView):
@@ -32,6 +35,4 @@ class UserPurchasePrizeProductView(GenericAPIView):
 
     @staticmethod
     def has_enough_points(user, product):
-        if user.points < product.sell_point:
-            return False
-        return True
+        return user.points >= product.sell_point

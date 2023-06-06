@@ -1,6 +1,11 @@
 from django.urls import path
 
-from .api_endpoints import child_category, parent_category, prize_product, purchase_prize
+from .api_endpoints import (
+    child_category,
+    parent_category,
+    prize_product,
+    purchase_prize,
+)
 
 
 application_urlpatterns = [

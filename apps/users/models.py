@@ -6,6 +6,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.common.models import BaseModel, City, Occupation
+
 from .managers import UserManager
 
 
