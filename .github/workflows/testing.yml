@@ -55,7 +55,7 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         port: 22
         script: |
-          cd ~/thermex.uz
+          cd ~/thermex
           docker-compose down
           docker container prune -f
           docker image prune -f
