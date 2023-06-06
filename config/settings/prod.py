@@ -4,7 +4,7 @@ from .base import *  # noqa
 
 
 DEBUG = True
-ALLOWED_HOSTS = ["18.228.10.255", "127.0.0.1", "api.san-neo.uz"]
+ALLOWED_HOSTS = ["95.130.227.48", "127.0.0.1", "api.san-neo.uz", "thermexuz.uz"]
 CORS_ORIGIN_ALLOW_ALL = True
 DATABASES = {
     "default": {
