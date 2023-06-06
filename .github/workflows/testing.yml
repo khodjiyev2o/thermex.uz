@@ -45,8 +45,16 @@ jobs:
     needs: testing
     if: github.ref == 'refs/heads/main'
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: 22
+        source: .
+        target: thermex
     - name: SSH into server and deploy
       uses: appleboy/ssh-action@master
       with:
