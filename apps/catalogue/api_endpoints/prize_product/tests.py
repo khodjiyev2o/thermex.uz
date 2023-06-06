@@ -19,7 +19,7 @@ class TestPrizeProductView(APITestCase):
         )
 
     def test_prize_product_list(self):
-        url = reverse("prize-product-list", kwargs={"pk": self.prize_product.id})
+        url = reverse("prize-product-list", kwargs={"pk": self.child_category.id})
         headers = {
             "HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}",
         }
