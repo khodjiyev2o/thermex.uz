@@ -6,4 +6,4 @@ from apps.catalogue.models import PrizeParentCategory
 class PrizeParentCategoryListSerializer(serializers.ModelSerializer):
     class Meta:
         model = PrizeParentCategory
-        fields = ("id", "name")
+        fields = ("id", "name", "photo")

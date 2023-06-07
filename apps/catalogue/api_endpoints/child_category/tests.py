@@ -23,7 +23,7 @@ class TestChildCategoryView(APITestCase):
         }
         response = self.client.get(url, **headers)
         assert response.status_code == 200
-        assert list(response.json()[0].keys()) == ["id", "name"]
+        assert list(response.json()[0].keys()) == ["id", "name", "photo"]
         assert response.json()[0]["name"] == self.child_category.name_ru
         assert response.json()[0]["id"] == self.child_category.id
 
@@ -32,7 +32,7 @@ class TestChildCategoryView(APITestCase):
         headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}", "HTTP_ACCEPT_LANGUAGE": "uz"}
         response = self.client.get(url, **headers)
         assert response.status_code == 200
-        assert list(response.json()[0].keys()) == ["id", "name"]
+        assert list(response.json()[0].keys()) == ["id", "name", "photo"]
         assert response.json()[0]["name"] == self.child_category.name_uz
         assert response.json()[0]["id"] == self.child_category.id
 
