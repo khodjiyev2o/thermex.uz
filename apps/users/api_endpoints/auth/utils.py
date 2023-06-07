@@ -3,7 +3,7 @@ import string
 import sys
 
 import environ
-from eskiz_sms import EskizSMS
+from apps.common.utils import MyEskiz
 
 
 env = environ.Env()
@@ -14,8 +14,8 @@ def send_activation_code_via_sms(phone: str, code: str):
         message_data = f"Thermex.uz uchun <#> Tasdiqlash kodi: {code}"
         email = env.str("ESKIZ_USER_EMAIL")
         password = env.str("ESKIZ_USER_PASSWORD")
-        eskiz = EskizSMS(email=email, password=password)
-        eskiz.send_sms(mobile_phone=phone[1:], message=message_data, from_whom="4546", callback_url=None)
+        eskiz = MyEskiz(email=email, password=password)
+        eskiz.send_sms(mobile_phone=phone[1:], message=message_data)
 
 
 def generate_code():

@@ -1,6 +1,6 @@
 import sys
 
-from eskiz_sms import EskizSMS
+from apps.common.utils import MyEskiz
 
 from apps.users.models import User
 
@@ -22,15 +22,11 @@ class Eskiz:
         )
 
     def send_sms_message_to_admin_and_user_about_user_prize(self):
-        eskiz = EskizSMS(email=self.email, password=self.password)
+        eskiz = MyEskiz(email=self.email, password=self.password)
         if "test" not in sys.argv:
             eskiz.send_sms(
                 mobile_phone=str(self.instance.user.phone)[1:],
                 message=self.user_message,
-                from_whom="4546",
-                callback_url=None,
             )
             for user in User.objects.filter(is_superuser=True):
-                eskiz.send_sms(
-                    mobile_phone=str(user.phone)[1:], message=self.admin_message, from_whom="4546", callback_url=None
-                )
+                eskiz.send_sms(mobile_phone=str(user.phone)[1:], message=self.admin_message)
