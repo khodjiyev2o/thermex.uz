@@ -1,7 +1,6 @@
 import sys
 
 from apps.common.utils import MyEskiz
-
 from apps.users.models import User
 
 
