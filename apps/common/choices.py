@@ -490,11 +490,11 @@ regions_translations = {
 }
 
 
-category_choices = ["Water Heaters", "Boilers"]
-category_choices_translations = {"Boilers": "Котлы", "Water Heaters": "Водонагреватели"}
+category_choices = ["Suv Isitgichlari", "Gaz kozonlari"]
+category_choices_translations = {"Gaz kozonlari": "Котлы", "Suv Isitgichlari": "Водонагреватели"}
 category_brand_dict = {
-    "Water Heaters": ["GIRO", "SILVERHEAT", "NOVA", "Nobel", "Thermo", "TITANIUMHEAT", "GARANTERM"],
-    "Boilers": ["Mizudo", "ETALON"],
+    "Suv Isitgichlari": ["GIRO", "SILVERHEAT", "NOVA", "Nobel", "Thermo", "TITANIUMHEAT", "GARANTERM"],
+    "Gaz kozonlari": ["Mizudo", "ETALON"],
 }
 
 brand_product_dict = {

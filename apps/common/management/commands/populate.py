@@ -63,7 +63,7 @@ class Command(BaseCommand):
         jobs = {"Sotuvchi": "Продавец", "Chilangar": "Монтажник"}
         for job in list(jobs.keys()):
             try:
-                Occupation.objects.create(name=job, name_ru=jobs[job])
+                Occupation.objects.create(name=job, name_ru=jobs[job], name_uz=job)
                 self.stdout.write(self.style.SUCCESS(f"Created {job} occupation"))
             except IntegrityError:
                 self.stdout.write(self.style.ERROR('Error on creating "%s"' % job))
@@ -72,7 +72,9 @@ class Command(BaseCommand):
     def create_products(self):
         self.stdout.write(self.style.SUCCESS("Creating the products"))
         for category in category_choices:
-            category_instance = Category.objects.create(name=category, name_ru=category_choices_translations[category])
+            category_instance = Category.objects.create(
+                name_uz=category, name_ru=category_choices_translations[category]
+            )
             for brand in category_brand_dict[category]:
                 brand_instance = Brand.objects.create(name=brand, category=category_instance)
                 for product in brand_product_dict[brand]:
