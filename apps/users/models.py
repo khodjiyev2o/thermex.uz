@@ -15,7 +15,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     last_name = models.CharField(_("Last Name"), max_length=255, null=True)
     middle_name = models.CharField(_("Middle Name"), max_length=255, null=True)
     username = models.CharField(_("Username"), max_length=255, unique=True, null=True)
-    phone = PhoneNumberField(_("Phone number"), max_length=32, unique=True)
+    phone = models.CharField(_("Phone number"), max_length=13, unique=True)
     email = models.EmailField(_("Email"), max_length=255, null=True, blank=True)
     photo = models.ImageField(_("Photo"), upload_to="users/%Y/%m", blank=True, null=True)
     job = models.ForeignKey(Occupation, verbose_name=_("Occupation"), null=True, on_delete=models.CASCADE)

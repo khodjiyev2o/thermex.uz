@@ -50,7 +50,7 @@ class SoldProduct(BaseModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name=_("Product"))
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("User"), related_name="sold_products")
     photo = models.ImageField(upload_to="sold_products/%Y/%m")
-    barcode = models.CharField(max_length=15, verbose_name=_("Bar Code"))
+    barcode = models.CharField(max_length=14, verbose_name=_("Bar Code"))
     city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name=_("City"))
 
     class Meta:

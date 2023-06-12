@@ -23,7 +23,7 @@ class TestUserSoldProducts(APITestCase):
         self.url = reverse("sold-product-create")
         self.user = User.objects.create_user(phone="+998123456789", first_name="Samandar")
         self.used_barcode = 1112
-        self.new_barcode = 2256
+        self.new_barcode = "01111111111234"
         region_instance = Region.objects.create(name="Namanagan")
         self.city_instance = City.objects.create(region=region_instance, name="Davlatobod tumani")
         category_instance = Category.objects.create(name="Test Category")
@@ -33,12 +33,38 @@ class TestUserSoldProducts(APITestCase):
             product=self.product_instance, user=self.user, barcode=self.used_barcode, city=self.city_instance
         )
 
+    def test_create_sold_products_invalid_bar_code_not_starts_with_0(self):
+        # first case - valid data - success
+        headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
+        data = {
+            "product": self.product_instance.id,
+            "barcode": "1234567891011",
+            "photo": self.tmp_file,
+            "city": self.city_instance.id,
+        }
+        response = self.client.post(self.url, data=data, format="multipart", **headers)
+        assert response.status_code == 400
+        assert response.json()["barcode"] == ["Неверный бар код!"]
+
+    def test_create_sold_products_invalid_bar_code_not_14_digits(self):
+        # first case - valid data - success
+        headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
+        data = {
+            "product": self.product_instance.id,
+            "barcode": "0123456789101",
+            "photo": self.tmp_file,
+            "city": self.city_instance.id,
+        }
+        response = self.client.post(self.url, data=data, format="multipart", **headers)
+        assert response.status_code == 400
+        assert response.json()["barcode"] == ["Неверный бар код!"]
+
     def test_create_sold_product_with_valid_data(self):
         # first case - valid data - success
         headers = {"HTTP_AUTHORIZATION": f"Bearer {self.user.tokens.get('access')}"}
         data = {
             "product": self.product_instance.id,
-            "barcode": "1112312",
+            "barcode": "01234567891011",
             "photo": self.tmp_file,
             "city": self.city_instance.id,
         }

@@ -16,7 +16,8 @@ class CreateSoldProductSerializer(serializers.ModelSerializer):
 
         if product and SoldProduct.objects.filter(barcode=value, product=product).exists():
             raise serializers.ValidationError(_("Этот продукт уже добавлен !"))
-
+        if len(value) != 14 or not value.startswith("0"):
+            raise serializers.ValidationError(_("Неверный бар код!"))
         return value
 
 
