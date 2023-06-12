@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from phonenumber_field.modelfields import PhoneNumberField
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.common.models import BaseModel, City, Occupation
@@ -58,7 +57,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
 
 
 class VerificationCode(BaseModel):
-    phone = PhoneNumberField(_("Phone number"), max_length=32, null=True)
+    phone = models.CharField(_("Phone number"), max_length=13, null=True)
     code = models.CharField(
         _("Code"),
         max_length=10,
