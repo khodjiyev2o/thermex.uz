@@ -4,8 +4,8 @@ from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 
 from apps.users.api_endpoints.auth.serializers import PhoneAuthenticationSerializer
-from apps.users.api_endpoints.auth.utils import send_activation_code_via_sms
 from apps.users.models import VerificationCode
+from apps.users.tasks import send_activation_code_via_sms
 
 from .utils import generate_code
 
@@ -34,5 +34,5 @@ class PhoneAuthenticationView(CreateAPIView):
 
     def perform_create(self, serializer):
         code = generate_code()
-        send_activation_code_via_sms(phone=serializer.validated_data.get("phone"), code=code)
+        send_activation_code_via_sms.delay(phone=serializer.validated_data.get("phone"), code=code)
         serializer.save(code=code)

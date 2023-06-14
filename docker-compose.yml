@@ -13,9 +13,13 @@ services:
     ports:
       - "5432:5432"
     container_name: thermex_db
-  web:
+
+  redis:
+    image: redis:6-alpine
+    restart: always
+
+  web: &web
     build: .
-    #command: python manage.py runserver 0.0.0.0:8000
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --reload
     restart: always
     env_file:
@@ -29,6 +33,14 @@ services:
     depends_on:
       - db
     container_name: thermex
+
+  celery_worker:
+      <<: *web
+      ports: [ ]
+      command: celery -A config.celery worker -l INFO
+      restart: always
+      container_name: celery_worker
+
   nginx-proxy:
     container_name: nginx-proxy
     build: ./nginx
@@ -45,6 +57,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     depends_on:
       - web
+
   nginx-proxy-letsencrypt:
       image: jrcs/letsencrypt-nginx-proxy-companion
       env_file:

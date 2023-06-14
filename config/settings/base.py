@@ -93,26 +93,27 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# TIME AND LANGUAGE CONFIGURATION
 LANGUAGE_CODE = "ru"
-
 TIME_ZONE = "Asia/Tashkent"
-
 USE_I18N = True
-
 USE_TZ = True
 USE_L10N = True
 
+# STATIC FILES CONFIGURATION
+STATIC_URL = "staticfiles/"  # URL to access static files in web, https://thermexuz.uz/staticfiles/something.jpg
+STATIC_ROOT = BASE_DIR / "staticfiles"  # root directory where all static files will be stored
+STATICFILES_DIRS = (
+    BASE_DIR / "static",
+)  # additional folders where "collecstatic" command should look for static files
 
-STATIC_URL = "staticfiles/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = (BASE_DIR / "static",)
-
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
+# MEDIA FILES CONFIGURATION
+MEDIA_URL = "media/"  # URL to access media files in web, https://thermexuz.uz/media/something.jpg
+MEDIA_ROOT = BASE_DIR / "media"  # root directory where all media files will be stored
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# JAZZMIN CONFIGURATION
 JAZZMIN_SETTINGS = {
     "site_brand": "THERMEX",
     # Logo to use for your site, must be present in static files, used for brand on top left
@@ -122,20 +123,18 @@ JAZZMIN_SETTINGS = {
     "site_logo_classes": "img-circle",
 }
 
-
+# REST FRAMEWORK CONFIGURATION
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
 }
-
-
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=99),
 }
 
+# MODEL TRANSLATION CONFIGURATION
 MODELTRANSLATION_LANGUAGES = ("uz", "ru")
 MODELTRANSLATION_DEFAULT_LANGUAGE = "ru"
-
 LANGUAGES = (
     ("uz", _("Uzbek")),
     ("ru", _("Russian")),
@@ -145,18 +144,24 @@ MODELTRANSLATION_LANGUAGES_CHOICES = (
     ("ru", _("Russian")),
 )
 MODELTRANSLATION_FALLBACK_LANGUAGES = ("uz", "ru")
-
 LOCALE_PATHS = [
     BASE_DIR / "locale/",
 ]
 
-
+# FIREBASE CONFIGURATION
 FIREBASE_APP = initialize_app()
-
-
 FCM_DJANGO_SETTINGS = {
     "DEFAULT_FIREBASE_APP": None,
     "APP_VERBOSE_NAME": _("Devices"),
     "ONE_DEVICE_PER_USER": False,
     "DELETE_INACTIVE_DEVICES": False,
 }
+
+# CELERY CONFIGURATION
+CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", "redis://redis:6379")
+CELERY_RESULT_BACKEND = env.str("CELERY_BROKER_URL", "redis://redis:6379")
+
+CELERY_TIMEZONE = "Asia/Tashkent"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_IMPORTS = ["apps.users.tasks"]

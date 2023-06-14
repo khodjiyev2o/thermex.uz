@@ -15,10 +15,17 @@ services:
     networks:
         - practise
     container_name: thermex_db
-  web:
+
+  redis:
+    image: redis:6-alpine
+    restart: always
+    networks:
+      - practise
+
+  web: &web
     build: .
-    #command: python manage.py runserver 0.0.0.0:8000
-    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --reload
+    command: python manage.py runserver 0.0.0.0:8000
+    #command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --reload
     restart: always
     env_file:
       - .env
@@ -33,6 +40,14 @@ services:
     container_name: thermex
     networks:
       - practise
+
+  celery_worker:
+    <<: *web
+    ports: [ ]
+    command: celery -A config.celery worker -l INFO
+    restart: always
+    container_name: celery_worker
+
   nginx:
     build: ./nginx-prod
     ports:
