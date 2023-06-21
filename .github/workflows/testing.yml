@@ -49,7 +49,7 @@ jobs:
       with:
         host: ${{ secrets.SERVER_IP_ADDRESS }}
         username: root
-        password: ${{ secrets.SERVER_PASSWORD }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         source: .
         target: thermex
@@ -58,7 +58,7 @@ jobs:
       with:
         host: ${{ secrets.SERVER_IP_ADDRESS }}
         username: root
-        password: ${{ secrets.SERVER_PASSWORD }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
           cd ~/thermex
