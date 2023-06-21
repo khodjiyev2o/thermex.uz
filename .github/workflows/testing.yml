@@ -52,7 +52,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         source: .
-        target: thermex
+        target: thermex.uz
     - name: SSH into server and deploy
       uses: appleboy/ssh-action@master
       with:
@@ -61,7 +61,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd ~/thermex
+          cd ~/thermex.uz
           docker-compose down
           docker container prune -f
           docker image prune -f
